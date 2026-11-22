@@ -15,7 +15,8 @@
 //
 // slides/<name>.md – one slide per file, starting with a header block:
 //   ---
-//   layout: default        (section|default|statement|timeline|procon|table|image|sources)
+//   layout: default        (section|agenda|default|statement|timeline|procon|table|image|sources)
+//                           agenda lists the headings of all section slides automatically
 //   source: Drs. 21/7319   (short source for the footer, inline Markdown allowed)
 //   steps: true            (reveal list items, or procon columns, one by one)
 //   chapter: Short name    (section only: chapter name for the footer, defaults to the heading)
@@ -97,8 +98,12 @@ function loadDeck(talk) {
   return { deck, slides: [titleSlide(deck), ...slides] };
 }
 
-function content(s, talk) {
+function content(s, talk, chapters) {
   const L = s.meta.layout;
+  if (L === 'agenda') {
+    const items = chapters.map((c, i) => `<li><span class="no">${String(i + 1).padStart(2, '0')}</span>${esc(c)}</li>`);
+    return marked.parse(s.body) + `<ol class="agenda">${items.join('')}</ol>`;
+  }
   if (L === 'procon') {
     const [head, ...cols] = s.body.split(/^(?=### )/m);
     return marked.parse(head) + '<div class="cols">' + cols.map(c => `<div class="col">${marked.parse(c)}</div>`).join('') + '</div>';
@@ -130,6 +135,8 @@ function logoRow(list, talk, missing) {
 function build(talk) {
   const { deck, slides } = loadDeck(talk);
   const missingLogos = new Set();
+  // Agenda: the headings of all section slides, in order
+  const chapters = slides.filter(s => s.meta.layout === 'section').map(s => headingText(s.body));
 
   let chapter = '', chapterNo = 0;
   const html = slides.map((s, i) => {
@@ -151,7 +158,7 @@ function build(talk) {
     const icon = /^https:\/\/github\.com\//.test(deck.link || '') ? '<img src="src/img/github-invertocat-black.svg" alt="GitHub">' : '';
     const link = L === 'title' && deck.link
       ? `<p class="title-link"><a href="${esc(deck.link)}">${icon}${esc(displayUrl(deck.link))}</a></p>` : '';
-    return `<section class="slide layout-${L}${qr ? ' has-qr' : ''}"${steps}>\n<div class="content">${pre}${content(s, talk)}${s.meta.logos ? logoRow(s.meta.logos, talk, missingLogos) : ''}${L === 'sources' ? LICENSE_LINE : ''}</div>\n${qr}${link}${footer}${notes}</section>`;
+    return `<section class="slide layout-${L}${qr ? ' has-qr' : ''}"${steps}>\n<div class="content">${pre}${content(s, talk, chapters)}${s.meta.logos ? logoRow(s.meta.logos, talk, missingLogos) : ''}${L === 'sources' ? LICENSE_LINE : ''}</div>\n${qr}${link}${footer}${notes}</section>`;
   }).join('\n\n');
 
   const out = `<!doctype html>

@@ -82,6 +82,12 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-section h2::after { background: var(--section-bar); }
 .layout-section p { font-size: 44px; opacity: .85; max-width: 1400px; }
 
+/* agenda: list generated from the section slides */
+.layout-agenda .agenda { margin-top: 16px; font-size: 48px; line-height: 1.2; }
+.layout-agenda .agenda > li { padding-left: 0; margin-bottom: .5em; }
+.layout-agenda .agenda > li::before { content: none; }
+.layout-agenda .agenda .no { display: inline-block; width: 2.2em; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+
 /* statement */
 .layout-statement .content { justify-content: center; align-items: flex-start; }
 .layout-statement h1, .layout-statement h2 { font-size: 180px; color: var(--accent); letter-spacing: -.02em; margin-bottom: .2em; }

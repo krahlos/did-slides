@@ -8,6 +8,7 @@ Musterfolie **title**. `duration = 10` in `deck.toml` setzt die Sollzeit des Tim
 """
 
 slides = [
+  "agenda",
   "kapitel-1",
   "folientyp-default",
   "folientyp-default-mit-steps",

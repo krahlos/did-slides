@@ -39,6 +39,8 @@ Fediverse. `lipsum` is the sample deck showing every slide layout.
 
 ## Workflow
 
+- **Never commit, amend or push without the user's explicit permission for that change.**
+  Finish the work, show what changed, propose the commit message(s), then wait for an OK.
 - Small commits using Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:` …).
 - Git hooks run via `prek` (`prek.toml`). Run `prek run --all-files` before larger commits.
 - Agent hooks live in `.agents/hooks/` (linked for Claude as `.claude/hooks`).

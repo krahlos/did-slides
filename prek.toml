@@ -3,7 +3,7 @@
 #:schema https://www.schemastore.org/prek.json
 
 default_install_hook_types = ["pre-commit", "commit-msg"]
-# Fremdcode und erzeugte Folien nicht anfassen
+# Leave vendored code and generated slides alone
 exclude = '^src/vendor/|\.index\.html$'
 
 [[repos]]
@@ -42,6 +42,29 @@ id = "check-case-conflict"
 [[repos.hooks]]
 id = "check-vcs-permalinks"
 
+[[repos.hooks]]
+id = "check-executables-have-shebangs"
+
+[[repos.hooks]]
+id = "pretty-format-json"
+args = ["--autofix", "--indent=2", "--no-ensure-ascii"]
+
+[[repos]]
+repo = "https://github.com/koalaman/shellcheck-precommit"
+rev = "v0.11.0"
+
+[[repos.hooks]]
+id = "shellcheck"
+
+[[repos]]
+repo = "https://github.com/scop/pre-commit-shfmt"
+rev = "v3.13.1-1"
+
+[[repos.hooks]]
+id = "shfmt"
+args = ["-i", "2", "-ci", "-s", "-bn"]
+files = '\.sh$'
+
 [[repos]]
 repo = "https://github.com/compilerla/conventional-pre-commit"
 rev = "v4.4.0"
@@ -51,8 +74,8 @@ id = "conventional-pre-commit"
 stages = ["commit-msg"]
 args = ["--verbose"]
 
-# Nur Recherche-Notizen und README: slides.md nutzt ---/key: value/--- als Folienkopf,
-# das liest markdownlint als Setext-Überschriften.
+# Research notes and docs only: slides.md uses ---/key: value/--- slide headers,
+# which markdownlint reads as setext headings.
 [[repos]]
 repo = "https://github.com/DavidAnson/markdownlint-cli2"
 rev = "v0.23.2"
@@ -62,9 +85,9 @@ id = "markdownlint-cli2"
 args = ["--fix"]
 exclude = '(^|/)slides\.md$'
 
-# Kein codespell: kennt nur Englisch und "korrigiert" deutsche Wörter (als→also, vor→for).
+# No codespell: English-only, it "fixes" German words in slides and notes (als→also, vor→for).
 
-# Baseline neu erzeugen: uvx detect-secrets@1.5.0 scan --exclude-files '^src/vendor/|\.index\.html$' > .secrets.baseline
+# Regenerate the baseline: uvx detect-secrets@1.5.0 scan --exclude-files '^src/vendor/|\.index\.html$' > .secrets.baseline
 [[repos]]
 repo = "https://github.com/Yelp/detect-secrets"
 rev = "v1.5.0"
@@ -94,16 +117,16 @@ repo = "local"
 
 [[repos.hooks]]
 id = "node-check"
-name = "node --check (Syntax der JS-Dateien)"
+name = "node --check (JS syntax)"
 language = "system"
 entry = "node --check"
 files = '^src/.*\.js$'
 
-# Hält die eingecheckten *.index.html synchron mit den Quellen.
-# Ändert der Build etwas, schlägt der Hook fehl: neu gebaute Dateien stagen und erneut committen.
+# Keeps the committed *.index.html in sync with their sources.
+# If the build changes anything the hook fails: stage the rebuilt files and commit again.
 [[repos.hooks]]
 id = "build-slides"
-name = "Folien bauen (node src/build.js)"
+name = "build slides (node src/build.js)"
 language = "system"
 entry = "node src/build.js"
 pass_filenames = false

@@ -1,4 +1,33 @@
 {
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-tool-use-markdownlint.sh",
+            "type": "command"
+          },
+          {
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-tool-use-json.sh",
+            "type": "command"
+          },
+          {
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-tool-use-shellcheck.sh",
+            "type": "command"
+          },
+          {
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-tool-use-shfmt.sh",
+            "type": "command"
+          },
+          {
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/post-tool-use-build-slides.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "Edit|Write"
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Bash(git add:*)",

@@ -9,6 +9,8 @@
 //   duration = 26                               (optional: target minutes for the presenter timer)
 //   notes    = "…"                              (optional: speaker notes for the title slide)
 //   theme    = "eu"                             (optional: eu | gruene | did, default eu; Shift+E/G/D switch live)
+//   link     = "https://github.com/…"           (optional: link shown bottom left on the title slide)
+//   qr       = "https://…"                      (optional: QR code on the title slide, see qr: below)
 //   slides   = ["kapitel-problem", "vier-probleme"]   (file names in slides/, without .md)
 //
 // slides/<name>.md – one slide per file, starting with a header block:
@@ -20,6 +22,7 @@
 //   image: img/x.png       (image only, relative to data/<talk>/) · alt: … · credit: …
 //   logos: BMDS, SPRIND    (row of small logos at the bottom; file data/<talk>/img/logos/<slug>.svg|png|webp,
 //                           e.g. "Common Codes" -> common-codes.svg; a missing file shows a placeholder)
+//   qr: https://…          (QR code with the URL below it on the right; the text area gets narrower)
 //   ---
 // Everything after a line "Note:" is speaker notes.
 // Files in slides/ that deck.toml does not list are skipped with a warning (parked slides).
@@ -28,6 +31,8 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('./vendor/marked.min.js');
 const TOML = require('./vendor/smol-toml.cjs');
+const qrcode = require('./vendor/qrcode-generator.js');
+qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; // default only handles ASCII
 
 const ROOT = path.join(__dirname, '..');
 const DATA = path.join(ROOT, 'data');
@@ -55,7 +60,19 @@ function parseSlide(md, file) {
 
 function titleSlide(deck) {
   const body = [`# ${deck.title}`, deck.subtitle && `## ${deck.subtitle}`, deck.event].filter(Boolean).join('\n\n');
-  return { meta: { layout: 'title' }, body, notes: (deck.notes || '').trim() };
+  return { meta: { layout: 'title', qr: deck.qr }, body, notes: (deck.notes || '').trim() };
+}
+
+const displayUrl = url => url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+// QR code as inline SVG, generated at build time: no runtime JS, sharp at any size.
+// Always black on white (quiet zone included) so phones can scan it in every theme.
+function qrBlock(url) {
+  const qr = qrcode(0, 'M');
+  qr.addData(url);
+  qr.make();
+  return `<figure class="qr">${qr.createSvgTag({ cellSize: 1, margin: 2, scalable: true })}` +
+    `<figcaption>${esc(displayUrl(url))}</figcaption></figure>`;
 }
 
 function loadDeck(talk) {
@@ -129,7 +146,12 @@ function build(talk) {
       `<span>${i + 1} / ${slides.length}</span></footer>`;
     const notes = s.notes ? `<aside class="notes">${marked.parse(s.notes)}</aside>` : '';
     const steps = s.meta.steps === 'true' ? ' data-steps' : '';
-    return `<section class="slide layout-${L}"${steps}>\n<div class="content">${pre}${content(s, talk)}${s.meta.logos ? logoRow(s.meta.logos, talk, missingLogos) : ''}${L === 'sources' ? LICENSE_LINE : ''}</div>\n${footer}${notes}</section>`;
+    const qr = s.meta.qr ? qrBlock(s.meta.qr) : '';
+    // GitHub links get the official Invertocat (allowed "to link to your GitHub project", see LICENSES/)
+    const icon = /^https:\/\/github\.com\//.test(deck.link || '') ? '<img src="src/img/github-invertocat-black.svg" alt="GitHub">' : '';
+    const link = L === 'title' && deck.link
+      ? `<p class="title-link"><a href="${esc(deck.link)}">${icon}${esc(displayUrl(deck.link))}</a></p>` : '';
+    return `<section class="slide layout-${L}${qr ? ' has-qr' : ''}"${steps}>\n<div class="content">${pre}${content(s, talk)}${s.meta.logos ? logoRow(s.meta.logos, talk, missingLogos) : ''}${L === 'sources' ? LICENSE_LINE : ''}</div>\n${qr}${link}${footer}${notes}</section>`;
   }).join('\n\n');
 
   const out = `<!doctype html>

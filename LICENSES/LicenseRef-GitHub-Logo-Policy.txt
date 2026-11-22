@@ -1,0 +1,21 @@
+GitHub Invertocat logo - not open-licensed
+
+The file src/img/github-invertocat-black.svg is the unmodified "Invertocat" logo from
+GitHub's official logo pack (https://brand.github.com/GitHub_Logos.zip).
+
+GITHUB, the GITHUB logo design, the INVERTOCAT logo design, OCTOCAT and the OCTOCAT logo
+design are trademarks of GitHub, Inc. The logo is NOT covered by this repository's
+EUPL-1.2 or CC BY 4.0 licenses.
+
+It is used here only as permitted by GitHub's logo guidelines
+(https://brand.github.com/foundations/logo, section "Link to GitHub"):
+
+  "Use the Invertocat logo as a social button to link to your GitHub profile or project."
+
+Conditions from the same page that apply to this use:
+- only in black or white, unmodified (no color change, distortion or effects)
+- less prominent than the project's own name or content
+- never in a way that suggests GitHub made, owns or endorses this project
+- never as the logo or icon of this project
+
+If you reuse these slides, keep to these conditions or remove the logo.

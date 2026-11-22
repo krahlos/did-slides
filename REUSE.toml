@@ -23,9 +23,19 @@ SPDX-FileCopyrightText = [
 SPDX-License-Identifier = "MIT AND BSD-3-Clause"
 
 [[annotations]]
+path = "src/vendor/qrcode-generator.js"
+SPDX-FileCopyrightText = "2009 Kazuhiko Arase"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
 path = "src/vendor/smol-toml.cjs"
 SPDX-FileCopyrightText = "Squirrel Chat et al."
 SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = "src/img/github-invertocat-black.svg"
+SPDX-FileCopyrightText = "GitHub, Inc."
+SPDX-License-Identifier = "LicenseRef-GitHub-Logo-Policy"
 
 [[annotations]]
 path = "src/fonts/**"

@@ -86,6 +86,7 @@ Notes for AI agents are in [AGENTS.md](AGENTS.md).
 - Code, configuration and docs: [EUPL-1.2](LICENSES/EUPL-1.2.txt), © 2026 krahlos
 - marked (Markdown parser): MIT AND BSD-3-Clause
 - smol-toml (TOML parser): BSD-3-Clause
+- QR Code Generator (build-time QR codes): MIT, © 2009 Kazuhiko Arase
 - Font Atkinson Hyperlegible: OFL-1.1, © 2020 Braille Institute of America, Inc.
 
 ## Disclaimer

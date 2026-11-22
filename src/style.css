@@ -127,6 +127,18 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .logo-placeholder { height: 72px; padding: 0 28px; display: inline-flex; align-items: center; border: 3px dashed var(--rule); color: var(--muted); font-size: 24px; }
 .layout-section .logo-placeholder { border-color: currentColor; color: inherit; opacity: .6; }
 
+/* QR code ("qr:" in the slide header, "qr" in deck.toml for the title slide) */
+.slide.has-qr .content { right: calc(var(--pad-x) + 460px); }
+.qr { position: absolute; right: var(--pad-x); bottom: 150px; width: 400px; margin: 0; text-align: center; }
+.qr svg { display: block; width: 400px; height: 400px; }
+.qr figcaption { margin-top: 12px; font-size: 22px; color: var(--muted); overflow-wrap: anywhere; }
+.layout-section .qr figcaption { color: inherit; opacity: .8; }
+
+/* Repo or talk link on the title slide ("link" in deck.toml) */
+.title-link { position: absolute; left: var(--pad-x); bottom: 56px; margin: 0; font-size: 28px; color: var(--muted); }
+.title-link a { color: inherit; display: inline-flex; align-items: center; gap: 14px; }
+.title-link img { height: 1.2em; width: auto; } /* GitHub Invertocat: unmodified, black, smaller than the text line */
+
 .layout-sources .license { margin-top: auto; font-size: 24px; color: var(--muted); }
 
 /* ---- Presenter view ---- */

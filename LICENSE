@@ -21,10 +21,15 @@ Third-party components
   src/vendor/marked.min.js   marked - MIT AND BSD-3-Clause
                              Copyright 2018+ MarkedJS, 2011-2018 Christopher
                              Jeffrey, 2004 John Gruber
+  src/vendor/qrcode-generator.js  QR Code Generator - MIT
+                             Copyright 2009 Kazuhiko Arase
   src/vendor/smol-toml.cjs   smol-toml - BSD-3-Clause
                              Copyright Squirrel Chat et al.
   src/fonts/*                Atkinson Hyperlegible - OFL-1.1
                              Copyright 2020 Braille Institute of America, Inc.
+
+  src/img/github-invertocat-black.svg  GitHub Invertocat - trademark of GitHub, Inc.,
+                             not open-licensed; see LICENSES/LicenseRef-GitHub-Logo-Policy.txt
 
 Logos and images of third parties keep their own terms; each one is listed
 in REUSE.toml with its source.

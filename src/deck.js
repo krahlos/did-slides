@@ -1,6 +1,7 @@
 // Slide controller. Runs via double-click (file://): no modules, no fetch.
 // Keys: → Space PgDn = next · ← PgUp = back · Home/End · N notes · S presenter view · F fullscreen · P reset timer
 //       Shift+E / Shift+G / Shift+D = theme eu / gruene / did (src/<theme>.style.css)
+//       digits + Enter = jump to slide (1 5 Enter -> slide 15), Esc cancels, Backspace deletes a digit
 // On-screen labels stay German: they are part of the talk.
 (() => {
   'use strict';
@@ -104,10 +105,26 @@
     else if ('idx' in m) go(m.idx, m.step, { remote: true, nav: m.nav });
   });
 
+  // Jump to a slide: type its number, then Enter. Typed digits show bottom right and expire after 2 s.
+  const jumpEl = document.body.appendChild(document.createElement('div'));
+  jumpEl.className = 'jump';
+  let jump = '', jumpTimer;
+  function setJump(v) {
+    jump = v;
+    jumpEl.textContent = v ? `→ ${v}` : '';
+    jumpEl.classList.toggle('on', !!v);
+    clearTimeout(jumpTimer);
+    if (v) jumpTimer = setTimeout(() => setJump(''), 2000);
+  }
+
   addEventListener('keydown', e => {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     if (e.shiftKey && THEME_KEYS[k]) setTheme(THEME_KEYS[k]);
+    else if (/^[0-9]$/.test(k)) setJump((jump + k).slice(-3));
+    else if (jump && k === 'Enter') { const n = parseInt(jump, 10); setJump(''); if (n > 0) go(Math.min(n, slides.length) - 1, 0); }
+    else if (jump && k === 'Backspace') setJump(jump.slice(0, -1));
+    else if (jump && k === 'Escape') setJump('');
     else if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(k)) next();
     else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) prev();
     else if (k === 'Home') go(0, 0);

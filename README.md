@@ -43,6 +43,7 @@ connection needed — it runs in any current browser.
 | <kbd>N</kbd> | toggle speaker notes |
 | <kbd>S</kbd> | presenter view (second window: current + next slide, notes, timer) |
 | <kbd>P</kbd> | reset timer |
+| number + <kbd>Enter</kbd> | jump to slide, e.g. <kbd>1</kbd> <kbd>5</kbd> <kbd>Enter</kbd> → slide 15 (<kbd>Esc</kbd> cancels) |
 | <kbd>Shift</kbd>+<kbd>E</kbd> / <kbd>G</kbd> / <kbd>D</kbd> | color theme: EU / Grüne / DI.DAY (default per talk: `theme` in `deck.toml`) |
 
 Jump to a slide with its number in the URL, e.g. `eudi-wallet.index.html#5`.

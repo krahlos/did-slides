@@ -61,6 +61,11 @@ body.show-notes:not(.presenter) .slide.active .notes {
   background: rgba(22, 26, 34, .94); color: #fff; font-size: 30px; padding: 32px var(--pad-x);
 }
 
+/* Slide number being typed for a jump (digits + Enter) */
+.jump { display: none; position: fixed; right: 24px; bottom: 24px; z-index: 10; padding: 10px 18px; border-radius: 6px;
+  background: rgba(22, 26, 34, .88); color: #fff; font: 700 28px/1 "Atkinson Hyperlegible", system-ui, sans-serif; }
+.jump.on { display: block; }
+
 .progress { position: fixed; left: 0; bottom: 0; height: 6px; width: 100%; }
 .progress span { display: block; height: 100%; width: 0; background: var(--bar); transition: width .25s; }
 

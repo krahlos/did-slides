@@ -1,5 +1,6 @@
 // Slide controller. Runs via double-click (file://): no modules, no fetch.
 // Keys: → Space PgDn = next · ← PgUp = back · Home/End · N notes · S presenter view · F fullscreen · P reset timer
+//       Shift+E / Shift+G / Shift+D = theme eu / gruene / did (src/<theme>.style.css)
 // On-screen labels stay German: they are part of the talk.
 (() => {
   'use strict';
@@ -85,9 +86,20 @@
     tick();
   }
 
+  // Themes: CSS custom properties per <html data-theme>, mirrored to the other window.
+  const THEME_KEYS = { e: 'eu', g: 'gruene', d: 'did' };
+  function setTheme(t, remote) {
+    document.documentElement.dataset.theme = t;
+    if (!remote && other && !other.closed) other.postMessage({ theme: t }, '*');
+  }
+
   addEventListener('message', e => {
     const m = e.data || {};
-    if (m.hello) { other = e.source; other.postMessage({ idx, step, nav: false }, '*'); }
+    if (m.theme) setTheme(m.theme, true);
+    if (m.hello) {
+      other = e.source;
+      other.postMessage({ idx, step, nav: false, theme: document.documentElement.dataset.theme }, '*');
+    }
     else if (m.reset) t0 = null;
     else if ('idx' in m) go(m.idx, m.step, { remote: true, nav: m.nav });
   });
@@ -95,7 +107,8 @@
   addEventListener('keydown', e => {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(k)) next();
+    if (e.shiftKey && THEME_KEYS[k]) setTheme(THEME_KEYS[k]);
+    else if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(k)) next();
     else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) prev();
     else if (k === 'Home') go(0, 0);
     else if (k === 'End') go(last, stepsOf(last));

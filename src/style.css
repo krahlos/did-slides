@@ -5,14 +5,8 @@
 @font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; font-style: normal; src: url(fonts/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2"); }
 @font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; font-style: italic; src: url(fonts/atkinson-hyperlegible-latin-700-italic.woff2) format("woff2"); }
 
+/* Colors live in the theme files (eu/gruene/did.style.css), switched via <html data-theme>. */
 :root {
-  --blue: #003399;      /* EU blue, accent */
-  --blue-soft: #e6ebf5;
-  --ink: #161a22;
-  --muted: #555d6b;
-  --rule: #d5dae3;
-  --panel: #f3f5f8;     /* neutral panel, e.g. both procon columns */
-  --bg: #ffffff;
   --pad-x: 128px;
   --pad-y: 96px;
 }
@@ -34,16 +28,16 @@ body { font-family: "Atkinson Hyperlegible", system-ui, sans-serif; color: var(-
 h1, h2, h3 { margin: 0 0 .5em; line-height: 1.12; font-weight: 700; }
 h1 { font-size: 104px; letter-spacing: -.01em; }
 h2 { font-size: 68px; color: var(--ink); }
-h2::after { content: ""; display: block; width: 96px; height: 8px; background: var(--blue); margin-top: 28px; }
+h2::after { content: ""; display: block; width: 96px; height: 8px; background: var(--bar); margin-top: 28px; }
 h3 { font-size: 30px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 p { margin: 0 0 .6em; }
-strong { color: var(--blue); }
-a { color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+strong { color: var(--accent); }
+a { color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 ul, ol { margin: 0; padding-left: 0; list-style: none; }
 .content li { position: relative; padding-left: 48px; margin-bottom: .55em; }
-.content ul > li::before { content: ""; position: absolute; left: 0; top: .5em; width: 16px; height: 16px; background: var(--blue); }
+.content ul > li::before { content: ""; position: absolute; left: 0; top: .5em; width: 16px; height: 16px; background: var(--accent); }
 .content ol { counter-reset: n; }
-.content ol > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; font-weight: 700; color: var(--blue); }
+.content ol > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; font-weight: 700; color: var(--accent); }
 .content li li { font-size: .85em; color: var(--muted); margin: .3em 0 0; }
 
 /* Footer: chapter · source · number */
@@ -68,12 +62,12 @@ body.show-notes:not(.presenter) .slide.active .notes {
 }
 
 .progress { position: fixed; left: 0; bottom: 0; height: 6px; width: 100%; }
-.progress span { display: block; height: 100%; width: 0; background: var(--blue); transition: width .25s; }
+.progress span { display: block; height: 100%; width: 0; background: var(--bar); transition: width .25s; }
 
 /* ---- Slide layouts ---- */
 
 /* title */
-.layout-title { border-left: 32px solid var(--blue); }
+.layout-title { border-left: 32px solid var(--bar); }
 .layout-title .content { justify-content: center; inset: var(--pad-y) var(--pad-x); }
 .layout-title h1 { font-size: 112px; }
 .layout-title h2 { font-size: 52px; font-weight: 400; color: var(--muted); }
@@ -81,16 +75,16 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-title p { margin-top: 80px; font-size: 34px; color: var(--muted); }
 
 /* section */
-.layout-section { background: var(--blue); color: #fff; }
+.layout-section { background: var(--section-bg); color: var(--section-ink); }
 .layout-section .content { justify-content: center; inset: var(--pad-y) var(--pad-x); }
 .layout-section .no { font-size: 200px; font-weight: 700; line-height: 1; opacity: .35; margin-bottom: 24px; font-variant-numeric: tabular-nums; }
-.layout-section h1, .layout-section h2 { color: #fff; font-size: 104px; }
-.layout-section h2::after { background: #fff; }
+.layout-section h1, .layout-section h2 { color: var(--section-ink); font-size: 104px; }
+.layout-section h2::after { background: var(--section-bar); }
 .layout-section p { font-size: 44px; opacity: .85; max-width: 1400px; }
 
 /* statement */
 .layout-statement .content { justify-content: center; align-items: flex-start; }
-.layout-statement h1, .layout-statement h2 { font-size: 180px; color: var(--blue); letter-spacing: -.02em; margin-bottom: .2em; }
+.layout-statement h1, .layout-statement h2 { font-size: 180px; color: var(--accent); letter-spacing: -.02em; margin-bottom: .2em; }
 .layout-statement h2::after { display: none; }
 .layout-statement p { font-size: 52px; max-width: 1450px; }
 
@@ -100,7 +94,7 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-timeline { --dot: 32px; --line: 4px; --gap: 32px; }
 .layout-timeline .content > ul { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--gap); margin-top: auto; margin-bottom: auto; }
 .layout-timeline .content > ul > li { padding: calc(var(--dot) + 32px) 0 0; margin: 0; font-size: 32px; line-height: 1.3; text-align: center; }
-.layout-timeline .content > ul > li::before { z-index: 1; top: 0; left: 50%; transform: translateX(-50%); width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--bg); border: 6px solid var(--blue); }
+.layout-timeline .content > ul > li::before { z-index: 1; top: 0; left: 50%; transform: translateX(-50%); width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--bg); border: 6px solid var(--accent); }
 .layout-timeline .content > ul > li:not(:first-child)::after { content: ""; position: absolute; top: calc((var(--dot) - var(--line)) / 2); right: 50%; width: calc(100% + var(--gap)); height: var(--line); background: var(--rule); }
 .layout-timeline li strong { display: block; font-size: 44px; margin-bottom: 8px; }
 
@@ -112,7 +106,7 @@ body.show-notes:not(.presenter) .slide.active .notes {
 
 /* table */
 .layout-table table { border-collapse: collapse; width: 100%; font-size: 32px; }
-.layout-table th { text-align: left; font-size: 26px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 4px solid var(--blue); padding: 0 24px 16px 0; }
+.layout-table th { text-align: left; font-size: 26px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 4px solid var(--accent); padding: 0 24px 16px 0; }
 .layout-table td { padding: 20px 24px 20px 0; border-bottom: 2px solid var(--rule); vertical-align: top; }
 .layout-table tr:nth-child(even) td { background: var(--panel); }
 

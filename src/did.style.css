@@ -1,0 +1,15 @@
+/* Theme "did": colors of the Digital Independence Day website (https://di.day): purple
+   #800080, orange #FFA600, aubergine #280322, lilac #F9F2FF. Colors only: no logo or
+   typeface. Key: Shift+D. */
+html[data-theme="did"] {
+  --accent: #800080;      /* purple: text-safe on white */
+  --bar: #ffa600;         /* orange: decorative only, too light for text on white */
+  --ink: #280322;         /* aubergine */
+  --muted: #6b5a6e;
+  --rule: #e6d6f0;
+  --panel: #f9f2ff;       /* lilac */
+  --bg: #ffffff;
+  --section-bg: #280322;
+  --section-ink: #ffa600;
+  --section-bar: #f9f2ff;
+}

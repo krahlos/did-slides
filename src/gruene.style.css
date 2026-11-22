@@ -1,0 +1,16 @@
+/* Theme "gruene": colors of the Bündnis 90/Die Grünen "Farbwelt"
+   (https://design.gruene.de/4ccd94a80/p/308085-farbwelt): Tanne #005538, Klee #008939,
+   Grashalm #8ABD24, Sand #F5F1E9, Sonne #FFF17A. Colors only: no logo, sunflower or
+   party typeface. Key: Shift+G. */
+html[data-theme="gruene"] {
+  --accent: #005538;      /* Tanne: text-safe on Sand */
+  --bar: #8abd24;         /* Grashalm: decorative only, too light for text */
+  --ink: #1d2621;
+  --muted: #4f5b53;
+  --rule: #d8d1c1;
+  --panel: #ffffff;
+  --bg: #f5f1e9;          /* Sand */
+  --section-bg: #005538;  /* Tanne */
+  --section-ink: #ffffff;
+  --section-bar: #fff17a; /* Sonne */
+}

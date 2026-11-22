@@ -1,0 +1,14 @@
+/* Theme "eu" (default): EU blue on white. Key: Shift+E. */
+:root,
+html[data-theme="eu"] {
+  --accent: #003399;      /* text-safe accent: bullets, links, strong, numbers */
+  --bar: #003399;         /* decorative bars and progress */
+  --ink: #161a22;
+  --muted: #555d6b;
+  --rule: #d5dae3;
+  --panel: #f3f5f8;       /* neutral panel, e.g. both procon columns */
+  --bg: #ffffff;
+  --section-bg: #003399;
+  --section-ink: #ffffff;
+  --section-bar: #ffffff;
+}

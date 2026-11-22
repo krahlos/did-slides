@@ -1,18 +1,18 @@
-# Die *.index.html werden bewusst eingecheckt: Doppelklick ohne Build.
+# *.index.html is committed on purpose: opens via double-click without a build.
 
-# Persönliche Claude-Einstellungen (projektweite stehen in .claude/settings.json)
+# Personal Claude settings (shared ones live in .claude/settings.json)
 .claude/settings.local.json
 
-# Node (falls doch einmal npm-Pakete dazukommen)
+# Node (in case npm packages ever get added)
 node_modules/
 
-# Betriebssysteme
+# Operating systems
 .DS_Store
 ._*
 Thumbs.db
 desktop.ini
 
-# Editoren
+# Editors
 .vscode/
 .idea/
 *.swp
@@ -21,7 +21,7 @@ desktop.ini
 \#*\#
 .#*
 
-# Temporäres
+# Temporary files
 *.tmp
 *.bak
 *.orig

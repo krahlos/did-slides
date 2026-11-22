@@ -1,15 +1,16 @@
-// Folien-Steuerung. Läuft per Doppelklick (file://): keine Module, kein fetch.
-// Tasten: → Leertaste PgDn = vor · ← PgUp = zurück · Pos1/Ende · N Notizen · S Referentenansicht · F Vollbild · P Timer zurücksetzen
+// Slide controller. Runs via double-click (file://): no modules, no fetch.
+// Keys: → Space PgDn = next · ← PgUp = back · Home/End · N notes · S presenter view · F fullscreen · P reset timer
+// On-screen labels stay German: they are part of the talk.
 (() => {
   'use strict';
   const W = 1920, H = 1080;
-  const TARGET_MIN = Number(document.body.dataset.duration) || 0; // aus "duration:" der Titelfolie, 0 = ohne Sollzeit
+  const TARGET_MIN = Number(document.body.dataset.duration) || 0; // from "duration:" on the title slide, 0 = no target
   const presenter = new URLSearchParams(location.search).has('presenter');
   const deck = document.querySelector('.deck');
   const slides = [...deck.children];
   const last = slides.length - 1;
 
-  // Steps: bei procon die Spalten, sonst die Listenpunkte der obersten Ebene
+  // Steps: procon columns, otherwise top-level list items
   for (const s of slides) {
     if (!s.hasAttribute('data-steps')) continue;
     const cols = s.querySelectorAll('.col');
@@ -51,7 +52,7 @@
   const prev = () => { if (step > 0) go(idx, step - 1); else if (idx > 0) go(idx - 1, stepsOf(idx - 1)); };
   const resetTimer = () => { t0 = null; if (!presenter && other && !other.closed) other.postMessage({ reset: true }, '*'); };
 
-  // ---- Referentenansicht (gleiche Datei mit ?presenter, Abgleich per postMessage) ----
+  // ---- Presenter view (same file with ?presenter, synced via postMessage) ----
   function updatePresenter() {
     const [ni, ns] = step < stepsOf(idx) ? [idx, step + 1] : [idx + 1, 0];
     document.querySelector('.pv-next').classList.toggle('end', ni > last);

@@ -1,10 +1,10 @@
 {
   "config": {
-    // Lange Absätze und Tabellen in den Recherche-Notizen
+    // Long paragraphs and tables in the research notes
     "MD013": false,
-    // Fette Zwischenzeilen statt Überschriften sind in den Notizen gewollt
+    // Bold lines instead of headings are intended in the notes
     "MD036": false,
-    // Notizen beginnen nicht immer mit einer H1 (z. B. Frontmatter, ### als Einstieg)
+    // Notes do not always start with an H1 (front matter, ### as opener)
     "MD041": false
   }
 }

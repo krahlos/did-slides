@@ -1,46 +1,54 @@
-# DI.DAY-Vorträge zu europäischen Digitalthemen
+# DI.DAY talks on European digital topics
 
-**Präsentation starten:** die passende `*.index.html` doppelklicken. Läuft offline in jedem aktuellen Browser.
+**Start a presentation:** double-click the matching `*.index.html`. Works offline in any current browser.
+The slides are in German.
 
-| Datei | Vortrag |
+| File | Talk |
 | --- | --- |
-| `eudi-wallet.index.html` | Die EUDI-Wallet und d-you |
-| `digitaler-euro.index.html` | Der digitale Euro |
-| `fediverse.index.html` | Das Fediverse |
-| `lipsum.index.html` | Musterdeck mit allen Folientypen (Vorlage zum Abschauen) |
+| `eudi-wallet.index.html` | The EUDI Wallet and d-you |
+| `digitaler-euro.index.html` | The digital euro |
+| `fediverse.index.html` | The Fediverse |
+| `lipsum.index.html` | Sample deck showing every slide layout |
 
-| Taste | Funktion |
+| Key | Action |
 | --- | --- |
-| → Leertaste Bild↓ | vor |
-| ← Bild↑ | zurück |
-| Pos1 / Ende | erste / letzte Folie |
-| F | Vollbild |
-| N | Sprechernotizen ein/aus |
-| S | Referentenansicht (zweites Fenster: aktuelle + nächste Folie, Notizen, Timer) |
-| P | Timer zurücksetzen |
+| → Space PgDn | next |
+| ← PgUp | back |
+| Home / End | first / last slide |
+| F | fullscreen |
+| N | toggle speaker notes |
+| S | presenter view (second window: current + next slide, notes, timer) |
+| P | reset timer |
 
-Direkt zu Folie 5: `eudi-wallet.index.html#5`.
+Jump to slide 5: `eudi-wallet.index.html#5`.
 
-## Aufbau
+## Layout
 
 ```text
-src/              gemeinsames Design und Code (build.js, deck.js, style.css, Schrift, marked)
-data/<thema>/     slides.md, Recherche-Notizen, img/
-<thema>.index.html  erzeugt – nicht von Hand bearbeiten
+src/                shared code and design (build.js, deck.js, style.css, font, marked)
+data/<talk>/        slides.md, research notes, img/
+<talk>.index.html   generated – do not edit by hand
 ```
 
-## Folien bearbeiten
+## Editing slides
 
-Folien stehen in `data/<thema>/slides.md`. Danach neu bauen (Node.js nötig):
+Slides live in `data/<talk>/slides.md`. Rebuild afterwards (requires Node.js):
 
 ```sh
-node src/build.js              # alle Themen
-node src/build.js fediverse    # nur eins
+node src/build.js              # all talks
+node src/build.js fediverse    # a single talk
 ```
 
-Neues Thema: Ordner `data/<thema>/` mit einer `slides.md` anlegen und bauen. Folientypen und Kopf-Einträge sind oben in `src/build.js` beschrieben.
+New talk: create `data/<talk>/` with a `slides.md` and build. Slide layouts and header keys are
+documented at the top of `src/build.js`.
 
-## Lizenzen
+## Development
 
-- Schrift Atkinson Hyperlegible: SIL Open Font License, `src/fonts/OFL-LICENSE.txt`
-- marked (Markdown-Parser): MIT, `src/vendor/marked-LICENSE.md`
+Git hooks run via [prek](https://prek.j178.dev) (`prek.toml`): `prek install`, then
+`prek run --all-files`. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org).
+Notes for AI agents are in [AGENTS.md](AGENTS.md).
+
+## Licenses
+
+- Font Atkinson Hyperlegible: SIL Open Font License, `src/fonts/OFL-LICENSE.txt`
+- marked (Markdown parser): MIT, `src/vendor/marked-LICENSE.md`

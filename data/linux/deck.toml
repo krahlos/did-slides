@@ -1,0 +1,27 @@
+title = "Linux ist gar kein Betriebssystem"
+event = "DI.DAY · 12. April 2026 · Grünes Haus"
+theme = "did"
+notes = """
+Neuaufbau der LibreOffice-Folien vom 12.04.2026 (`2026-04-12_Linux.odp`).
+"""
+
+slides = [
+  "betriebssystem",
+  "schichten",
+  "aufgaben",
+  "wer-kontrolliert",
+  "gnu-geschichte",
+  "vier-freiheiten",
+  "linux-geschichte",
+  "fehleinschaetzung",
+  "gnu-linux",
+  "linux-basiert",
+  "stammbaum",
+  "pinguin",
+  "kapitel-praxis",
+  "linux-mint",
+  "kapitel-fragen",
+  "warum-ich",
+  "warum-du",
+  "quellen",
+]

@@ -52,3 +52,11 @@ SPDX-License-Identifier = "OFL-1.1"
 # path = "data/eudi-wallet/img/eu-flag.svg"
 # SPDX-FileCopyrightText = "European Union"
 # SPDX-License-Identifier = "LicenseRef-EU-Emblem"
+
+[[annotations]]
+path = "data/linux/img/tux.png"
+SPDX-FileCopyrightText = [
+  "Larry Ewing <lewing@isc.tamu.edu> and The GIMP",
+  "Sergey Smith (flat version)",
+]
+SPDX-License-Identifier = "LicenseRef-Tux"

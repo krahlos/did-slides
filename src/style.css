@@ -183,4 +183,7 @@ body.presenter { background: #1b1f27; color: #e8ebf0; }
 .pv-notes strong { color: #9db8ff; }
 .presenter .progress { display: none; }
 .presenter .slide { transition: none; }
+/* Presenter sees every step; the ones the audience does not see yet are dimmed */
+.presenter .step { opacity: .35; }
+.presenter .step.shown { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

@@ -1,0 +1,27 @@
+# Die *.index.html werden bewusst eingecheckt: Doppelklick ohne Build.
+
+# Persönliche Claude-Einstellungen (projektweite stehen in .claude/settings.json)
+.claude/settings.local.json
+
+# Node (falls doch einmal npm-Pakete dazukommen)
+node_modules/
+
+# Betriebssysteme
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Editoren
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+\#*\#
+.#*
+
+# Temporäres
+*.tmp
+*.bak
+*.orig

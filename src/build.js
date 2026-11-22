@@ -15,10 +15,14 @@
 //
 // slides/<name>.md – one slide per file, starting with a header block:
 //   ---
-//   layout: default        (section|agenda|default|statement|quote|timeline|procon|table|image|diagram|sources|transparency)
+//   layout: default        (section|agenda|default|statement|quote|timeline|procon|table|image|diagram|code|sources|transparency)
 //                           quote: a > blockquote (**bold** = highlight), the paragraph after it is the attribution
 //                           diagram: a ```mermaid block (rendered in the browser, theme colors); any other text
 //                           besides the heading goes into a column right of the diagram
+//                           code: a ``` block (```python, ```bash, ```cpp, ```rust …, highlighted at build time),
+//                           other text goes into a column right of it, like diagram.
+//                           ```algo Caption: pseudocode as in LaTeX (algorithmic): numbered lines, bold keywords
+//                           (English or German), <- != <= >= become ← ≠ ≤ ≥, comments after ▷ or //
 //                           agenda lists the headings of all section slides automatically;
 //                           sources and transparency: ### headings start columns (prompt as ``` block)
 //   source: Drs. 21/7319   (short source for the footer, inline Markdown allowed)
@@ -38,6 +42,26 @@ const { marked } = require('./vendor/marked.min.js');
 const TOML = require('./vendor/smol-toml.cjs');
 const qrcode = require('./vendor/qrcode-generator.js');
 qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']; // default only handles ASCII
+const hljs = require('./vendor/highlight.min.js'); // build time only: decks get plain <span class="hljs-…">
+
+// Pseudocode in the style of LaTeX algorithmic: ```algo blocks
+hljs.registerLanguage('algo', () => ({
+  case_insensitive: true,
+  unicodeRegex: true,
+  keywords: {
+    $pattern: /\p{L}+/u,
+    keyword: ['procedure', 'function', 'end', 'if', 'then', 'else', 'for', 'each', 'all', 'to', 'downto', 'do', 'while',
+      'repeat', 'until', 'return', 'and', 'or', 'not', 'in', 'break', 'continue',
+      'prozedur', 'funktion', 'ende', 'wenn', 'dann', 'sonst', 'für', 'alle', 'jedes', 'bis', 'solange', 'wiederhole',
+      'gib', 'zurück', 'und', 'oder', 'nicht'],
+    literal: ['true', 'false', 'nil', 'wahr', 'falsch'],
+  },
+  contains: [
+    hljs.COMMENT(/▷|\/\//, /$/),
+    { className: 'title', begin: /(?<=\b(?:procedure|function|prozedur|funktion)\s+)\p{L}[\p{L}\d_]*/u },
+    hljs.C_NUMBER_MODE,
+  ],
+}));
 
 const ROOT = path.join(__dirname, '..');
 const DATA = path.join(ROOT, 'data');
@@ -46,6 +70,22 @@ const LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/deed.de';
 const LICENSE_LINE = `<p class="license">Folien: krahlos · <a href="${LICENSE_URL}">CC BY 4.0</a></p>`;
 
 const THEMES = ['eu', 'gruene', 'did']; // each has src/<name>.style.css
+
+// Code blocks: highlighted at build time; ```algo becomes a numbered LaTeX-style algorithm box.
+let algoNo = 0; // per talk, reset in build()
+marked.use({ renderer: {
+  code({ text, lang = '' }) {
+    const [language = '', ...caption] = lang.trim().split(/\s+/);
+    if (language === 'algo') {
+      const src = text.replace(/<-/g, '←').replace(/!=/g, '≠').replace(/<=/g, '≤').replace(/>=/g, '≥');
+      const lines = hljs.highlight(src, { language }).value.split('\n').map(l => `<span class="ln">${l}</span>`);
+      return `<figure class="algo"><figcaption><b>Algorithmus ${++algoNo}</b> ${esc(caption.join(' '))}</figcaption>` +
+        `<pre><code>${lines.join('')}</code></pre></figure>\n`;
+    }
+    const code = hljs.getLanguage(language) ? hljs.highlight(text, { language }).value : esc(text);
+    return `<pre><code class="hljs${language ? ` language-${esc(language)}` : ''}">${code}</code></pre>\n`;
+  },
+} });
 
 const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const headingText = body => (body.match(/^#{1,3} (.+)$/m) || [, ''])[1].trim();
@@ -119,12 +159,14 @@ function content(s, talk, chapters) {
     const credit = s.meta.credit ? `<figcaption>${marked.parseInline(s.meta.credit)}</figcaption>` : '';
     return `<figure>${img}${credit}</figure><div class="text">${marked.parse(s.body)}</div>`;
   }
-  if (L === 'diagram') {
-    const m = s.body.match(/^```mermaid\n([\s\S]*?)^```$/m);
+  // diagram and code: heading on top, then the first ``` block, other text in a column right of it
+  if (L === 'diagram' || L === 'code') {
+    const m = s.body.match(L === 'diagram' ? /^```mermaid\n([\s\S]*?)^```$/m : /^```.*\n[\s\S]*?^```$/m);
     const heading = (s.body.match(/^#{1,3} .+$/m) || [''])[0];
     const text = s.body.replace(m ? m[0] : '', '').replace(heading, '').trim();
-    const chart = m ? `<pre class="mermaid">${esc(m[1])}</pre>` : '<div class="img-placeholder">Diagramm folgt</div>';
-    return marked.parse(heading) + `<div class="diagram">${chart}${text ? `<div class="text">${marked.parse(text)}</div>` : ''}</div>`;
+    const main = !m ? `<div class="img-placeholder">${L === 'diagram' ? 'Diagramm' : 'Code'} folgt</div>`
+      : L === 'diagram' ? `<pre class="mermaid">${esc(m[1])}</pre>` : marked.parse(m[0]);
+    return marked.parse(heading) + `<div class="split">${main}${text ? `<div class="text">${marked.parse(text)}</div>` : ''}</div>`;
   }
   return marked.parse(s.body);
 }
@@ -147,6 +189,7 @@ function logoRow(list, talk, missing) {
 function build(talk) {
   const { deck, slides } = loadDeck(talk);
   const missingLogos = new Set();
+  algoNo = 0;
   // Agenda: the headings of all section slides, in order
   const chapters = slides.filter(s => s.meta.layout === 'section').map(s => headingText(s.body));
 

@@ -77,7 +77,7 @@ id = "conventional-pre-commit"
 stages = ["commit-msg"]
 args = ["--verbose"]
 
-# Research notes and docs only: slides.md uses ---/key: value/--- slide headers,
+# Research notes and docs only: slide files use ---/key: value/--- headers,
 # which markdownlint reads as setext headings.
 [[repos]]
 repo = "https://github.com/DavidAnson/markdownlint-cli2"
@@ -86,7 +86,7 @@ rev = "v0.23.2"
 [[repos.hooks]]
 id = "markdownlint-cli2"
 args = ["--fix"]
-exclude = '(^|/)slides\.md$'
+exclude = '^data/[^/]+/slides/'
 
 # No codespell: English-only, it "fixes" German words in slides and notes (als→also, vor→for).
 
@@ -141,7 +141,7 @@ name = "build slides (node src/build.js)"
 language = "system"
 entry = "node src/build.js"
 pass_filenames = false
-files = '^(data/[^/]+/slides\.md|src/(build\.js|vendor/.*))$'
+files = '^(data/[^/]+/(deck\.toml|slides/.*\.md)|src/(build\.js|vendor/.*))$'
 
 [[repos.hooks]]
 id = "sort-permissions"

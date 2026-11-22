@@ -1,0 +1,21 @@
+title = "Lorem ipsum dolor"
+subtitle = "Musterdeck mit allen Folientypen"
+event = "DI.DAY · Datum · Ort"
+duration = 10
+notes = """
+Musterfolie **title**. `duration = 10` in `deck.toml` setzt die Sollzeit des Timers in der Referentenansicht (Taste S). Notizen erscheinen mit Taste N.
+"""
+
+slides = [
+  "kapitel-1",
+  "folientyp-default",
+  "folientyp-default-mit-steps",
+  "folientyp-statement",
+  "folientyp-timeline",
+  "folientyp-timeline-mit-steps",
+  "kapitel-2",
+  "folientyp-procon",
+  "folientyp-table",
+  "folientyp-image",
+  "folientyp-sources",
+]

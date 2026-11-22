@@ -23,6 +23,11 @@ SPDX-FileCopyrightText = [
 SPDX-License-Identifier = "MIT AND BSD-3-Clause"
 
 [[annotations]]
+path = "src/vendor/smol-toml.cjs"
+SPDX-FileCopyrightText = "Squirrel Chat et al."
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
 path = "src/fonts/**"
 SPDX-FileCopyrightText = "2020 Braille Institute of America, Inc."
 SPDX-License-Identifier = "OFL-1.1"

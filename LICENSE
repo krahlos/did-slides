@@ -21,6 +21,8 @@ Third-party components
   src/vendor/marked.min.js   marked - MIT AND BSD-3-Clause
                              Copyright 2018+ MarkedJS, 2011-2018 Christopher
                              Jeffrey, 2004 John Gruber
+  src/vendor/smol-toml.cjs   smol-toml - BSD-3-Clause
+                             Copyright Squirrel Chat et al.
   src/fonts/*                Atkinson Hyperlegible - OFL-1.1
                              Copyright 2020 Braille Institute of America, Inc.
 

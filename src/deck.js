@@ -4,7 +4,7 @@
 (() => {
   'use strict';
   const W = 1920, H = 1080;
-  const TARGET_MIN = Number(document.body.dataset.duration) || 0; // from "duration:" on the title slide, 0 = no target
+  const TARGET_MIN = Number(document.body.dataset.duration) || 0; // from "duration" in deck.toml, 0 = no target
   const presenter = new URLSearchParams(location.search).has('presenter');
   const deck = document.querySelector('.deck');
   const slides = [...deck.children];

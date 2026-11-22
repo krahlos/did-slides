@@ -1,45 +1,76 @@
-// Builds <talk>.index.html from data/<talk>/slides.md.
+// Builds <talk>.index.html from data/<talk>/deck.toml and data/<talk>/slides/*.md.
 //   node src/build.js            all talks in data/
 //   node src/build.js fediverse  a single talk
 //
-// Every slide starts with a header block:
+// deck.toml – talk metadata and slide order; the title slide is generated from it:
+//   title    = "Der digitale Euro"
+//   subtitle = "…"                              (optional)
+//   event    = "DI.DAY · 6. Dezember 2026 · Ludwigsburg"  (optional)
+//   duration = 26                               (optional: target minutes for the presenter timer)
+//   notes    = "…"                              (optional: speaker notes for the title slide)
+//   slides   = ["kapitel-problem", "vier-probleme"]   (file names in slides/, without .md)
+//
+// slides/<name>.md – one slide per file, starting with a header block:
 //   ---
-//   layout: default        (title|section|default|statement|timeline|procon|table|image|sources)
+//   layout: default        (section|default|statement|timeline|procon|table|image|sources)
 //   source: Drs. 21/7319   (short source for the footer, inline Markdown allowed)
 //   steps: true            (reveal list items, or procon columns, one by one)
 //   chapter: Short name    (section only: chapter name for the footer, defaults to the heading)
 //   image: img/x.png       (image only, relative to data/<talk>/) · alt: … · credit: …
-//   duration: 26           (first slide only: target length in minutes for the timer)
 //   ---
 // Everything after a line "Note:" is speaker notes.
+// Files in slides/ that deck.toml does not list are skipped with a warning (parked slides).
 'use strict';
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('./vendor/marked.min.js');
+const TOML = require('./vendor/smol-toml.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const DATA = path.join(ROOT, 'data');
-// ponytail: one author and license for all talks; move into the title slide header if that ever differs
+// ponytail: one author and license for all talks; move into deck.toml if that ever differs
 const LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/deed.de';
 const LICENSE_LINE = `<p class="license">Folien: krahlos · <a href="${LICENSE_URL}">CC BY 4.0</a></p>`;
 
 const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const headingText = body => (body.match(/^#{1,3} (.+)$/m) || [, ''])[1].trim();
 
-function parse(md) {
-  // ponytail: header = "key: value" lines between two ---; a --- in the body directly followed by "x: y" would be read as a header
-  const parts = md.replace(/\r\n/g, '\n').split(/^---\n((?:[\w-]+:.*\n)*)---\n/m);
-  const slides = [];
-  for (let i = 1; i < parts.length; i += 2) {
-    const meta = {};
-    for (const line of parts[i].split('\n').filter(Boolean)) {
-      const k = line.indexOf(':');
-      meta[line.slice(0, k).trim()] = line.slice(k + 1).trim();
-    }
-    const [body, notes = ''] = parts[i + 1].split(/^Note:\s*$/m);
-    slides.push({ meta, body: body.trim(), notes: notes.trim() });
+// One slide file: header block of "key: value" lines between two ---, then body, then "Note:".
+function parseSlide(md, file) {
+  const m = md.replace(/\r\n/g, '\n').match(/^---\n((?:[\w-]+:.*\n)*)---\n([\s\S]*)$/);
+  if (!m) throw new Error(`${file}: must start with a ---/--- header block`);
+  const meta = {};
+  for (const line of m[1].split('\n').filter(Boolean)) {
+    const k = line.indexOf(':');
+    meta[line.slice(0, k).trim()] = line.slice(k + 1).trim();
   }
-  return slides;
+  const [body, notes = ''] = m[2].split(/^Note:\s*$/m);
+  return { meta, body: body.trim(), notes: notes.trim() };
+}
+
+function titleSlide(deck) {
+  const body = [`# ${deck.title}`, deck.subtitle && `## ${deck.subtitle}`, deck.event].filter(Boolean).join('\n\n');
+  return { meta: { layout: 'title' }, body, notes: (deck.notes || '').trim() };
+}
+
+function loadDeck(talk) {
+  const dir = path.join(DATA, talk);
+  const deck = TOML.parse(fs.readFileSync(path.join(dir, 'deck.toml'), 'utf8'));
+  if (typeof deck.title !== 'string' || !Array.isArray(deck.slides)) {
+    throw new Error(`${talk}/deck.toml: needs title = "…" and slides = [ … ]`);
+  }
+  const slideDir = path.join(dir, 'slides');
+  const slides = deck.slides.map(name => {
+    const file = path.join(slideDir, `${name}.md`);
+    if (!fs.existsSync(file)) throw new Error(`${talk}/deck.toml: slide "${name}" not found (${path.relative(ROOT, file)})`);
+    return parseSlide(fs.readFileSync(file, 'utf8'), path.relative(ROOT, file));
+  });
+  const listed = new Set(deck.slides);
+  const unused = fs.existsSync(slideDir)
+    ? fs.readdirSync(slideDir).filter(f => f.endsWith('.md') && !listed.has(f.slice(0, -3)))
+    : [];
+  if (unused.length) console.warn(`${talk}: not in deck.toml, skipped: ${unused.join(', ')}`);
+  return { deck, slides: [titleSlide(deck), ...slides] };
 }
 
 function content(s, talk) {
@@ -58,8 +89,7 @@ function content(s, talk) {
 }
 
 function build(talk) {
-  const slides = parse(fs.readFileSync(path.join(DATA, talk, 'slides.md'), 'utf8'));
-  if (!slides.length) throw new Error(`${talk}: no slides found – does slides.md start with a ---/--- header?`);
+  const { deck, slides } = loadDeck(talk);
 
   let chapter = '', chapterNo = 0;
   const html = slides.map((s, i) => {
@@ -79,20 +109,18 @@ function build(talk) {
     return `<section class="slide layout-${L}"${steps}>\n<div class="content">${pre}${content(s, talk)}${L === 'sources' ? LICENSE_LINE : ''}</div>\n${footer}${notes}</section>`;
   }).join('\n\n');
 
-  const title = slides[0].meta.title || headingText(slides[0].body) || talk;
-  const duration = parseInt(slides[0].meta.duration, 10) || 0;
   const out = `<!doctype html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title>
+<title>${esc(deck.title)}</title>
 <meta name="author" content="krahlos">
 <link rel="license" href="${LICENSE_URL}">
 <link rel="stylesheet" href="src/style.css">
 </head>
-<body data-duration="${duration}">
-<!-- Generated by src/build.js from data/${talk}/slides.md. Do not edit by hand. -->
+<body data-duration="${Number(deck.duration) || 0}">
+<!-- Generated by src/build.js from data/${talk}/. Do not edit by hand. -->
 <div class="deck">
 ${html}
 </div>
@@ -106,4 +134,4 @@ ${html}
 }
 
 const talks = process.argv.slice(2);
-(talks.length ? talks : fs.readdirSync(DATA).filter(d => fs.existsSync(path.join(DATA, d, 'slides.md')))).forEach(build);
+(talks.length ? talks : fs.readdirSync(DATA).filter(d => fs.existsSync(path.join(DATA, d, 'deck.toml')))).forEach(build);

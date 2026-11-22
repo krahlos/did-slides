@@ -1,0 +1,13 @@
+# Keeps the pinned GitHub Actions versions current. The "ci" prefix makes PR titles pass the
+# Conventional Commits check.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ["*"]

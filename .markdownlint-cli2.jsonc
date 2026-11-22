@@ -1,0 +1,10 @@
+{
+  "config": {
+    // Lange Absätze und Tabellen in den Recherche-Notizen
+    "MD013": false,
+    // Fette Zwischenzeilen statt Überschriften sind in den Notizen gewollt
+    "MD036": false,
+    // Notizen beginnen nicht immer mit einer H1 (z. B. Frontmatter, ### als Einstieg)
+    "MD041": false
+  }
+}

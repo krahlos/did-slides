@@ -23,7 +23,7 @@ Direkt zu Folie 5: `eudi-wallet.index.html#5`.
 
 ## Aufbau
 
-```
+```text
 src/              gemeinsames Design und Code (build.js, deck.js, style.css, Schrift, marked)
 data/<thema>/     slides.md, Recherche-Notizen, img/
 <thema>.index.html  erzeugt – nicht von Hand bearbeiten

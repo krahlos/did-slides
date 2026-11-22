@@ -17,7 +17,7 @@
   --pad-y: 96px;
 }
 
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; overflow: hidden; background: #0d0f14; }
 body { font-family: "Atkinson Hyperlegible", system-ui, sans-serif; color: var(--ink); }
 
@@ -95,10 +95,13 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-statement p { font-size: 52px; max-width: 1450px; }
 
 /* timeline: list "- **Date** text" becomes a horizontal timeline */
-.layout-timeline .content > ul { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 32px; margin-top: auto; margin-bottom: auto; position: relative; padding-top: 72px; }
-.layout-timeline .content > ul::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 4px; background: var(--rule); }
-.layout-timeline .content > ul > li { padding: 0; font-size: 32px; line-height: 1.3; }
-.layout-timeline .content > ul > li::before { left: 0; top: -60px; width: 28px; height: 28px; border-radius: 50%; background: var(--bg); border: 6px solid var(--blue); }
+/* Each item draws its own dot and the line segment from the previous dot, so both share one
+   origin and, with steps, the line grows with every revealed item. */
+.layout-timeline { --dot: 32px; --line: 4px; --gap: 32px; }
+.layout-timeline .content > ul { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--gap); margin-top: auto; margin-bottom: auto; }
+.layout-timeline .content > ul > li { padding: calc(var(--dot) + 32px) 0 0; margin: 0; font-size: 32px; line-height: 1.3; text-align: center; }
+.layout-timeline .content > ul > li::before { z-index: 1; top: 0; left: 50%; transform: translateX(-50%); width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--bg); border: 6px solid var(--blue); }
+.layout-timeline .content > ul > li:not(:first-child)::after { content: ""; position: absolute; top: calc((var(--dot) - var(--line)) / 2); right: 50%; width: calc(100% + var(--gap)); height: var(--line); background: var(--rule); }
 .layout-timeline li strong { display: block; font-size: 44px; margin-bottom: 8px; }
 
 /* procon: two equally weighted, neutral columns */

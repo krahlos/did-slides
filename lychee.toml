@@ -5,6 +5,7 @@
 exclude = [
   '^https://background\.tagesspiegel\.de/', # paywall, 403
   '^https://www\.europarl\.europa\.eu/',    # bot protection, 403
+  '^https://www\.gesetze-im-internet\.de/', # times out from GitHub runners, fine locally
 ]
 
 # Rate limited (429) when hit in parallel

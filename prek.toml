@@ -64,6 +64,15 @@ exclude = '(^|/)slides\.md$'
 
 # Kein codespell: kennt nur Englisch und "korrigiert" deutsche Wörter (als→also, vor→for).
 
+# Baseline neu erzeugen: uvx detect-secrets@1.5.0 scan --exclude-files '^src/vendor/|\.index\.html$' > .secrets.baseline
+[[repos]]
+repo = "https://github.com/Yelp/detect-secrets"
+rev = "v1.5.0"
+
+[[repos.hooks]]
+id = "detect-secrets"
+args = ["--baseline", ".secrets.baseline"]
+
 [[repos]]
 repo = "https://github.com/ComPWA/taplo-pre-commit"
 rev = "v0.9.3"

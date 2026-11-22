@@ -15,8 +15,9 @@
 //
 // slides/<name>.md – one slide per file, starting with a header block:
 //   ---
-//   layout: default        (section|agenda|default|statement|timeline|procon|table|image|sources)
-//                           agenda lists the headings of all section slides automatically
+//   layout: default        (section|agenda|default|statement|timeline|procon|table|image|sources|transparency)
+//                           agenda lists the headings of all section slides automatically;
+//                           sources and transparency: ### headings start columns (prompt as ``` block)
 //   source: Drs. 21/7319   (short source for the footer, inline Markdown allowed)
 //   steps: true            (reveal list items, or procon columns, one by one)
 //   chapter: Short name    (section only: chapter name for the footer, defaults to the heading)
@@ -104,7 +105,8 @@ function content(s, talk, chapters) {
     const items = chapters.map((c, i) => `<li><span class="no">${String(i + 1).padStart(2, '0')}</span>${esc(c)}</li>`);
     return marked.parse(s.body) + `<ol class="agenda">${items.join('')}</ol>`;
   }
-  if (L === 'procon') {
+  // ### headings split the body into columns: procon, transparency, and grouped sources
+  if (L === 'procon' || L === 'transparency' || (L === 'sources' && /^### /m.test(s.body))) {
     const [head, ...cols] = s.body.split(/^(?=### )/m);
     return marked.parse(head) + '<div class="cols">' + cols.map(c => `<div class="col">${marked.parse(c)}</div>`).join('') + '</div>';
   }

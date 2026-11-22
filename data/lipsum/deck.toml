@@ -21,4 +21,5 @@ slides = [
   "folientyp-image",
   "folientyp-qr",
   "folientyp-sources",
+  "folientyp-transparency",
 ]

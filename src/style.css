@@ -127,6 +127,20 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-sources .content > ul { columns: 2; column-gap: 80px; font-size: 26px; line-height: 1.3; }
 .layout-sources .content > ul > li { break-inside: avoid; padding-left: 28px; }
 .layout-sources .content > ul > li::before { width: 10px; height: 10px; top: .45em; }
+/* grouped sources: one column per ### group */
+.layout-sources .cols { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 64px; }
+.layout-sources .col { font-size: 28px; line-height: 1.3; }
+.layout-sources .col h3 { margin-bottom: 20px; }
+.layout-sources .col li { padding-left: 28px; margin-bottom: .4em; }
+.layout-sources .col li::before { width: 10px; height: 10px; top: .5em; }
+
+/* transparency: how AI was used (left) and the prompt verbatim (right) */
+.layout-transparency .cols { display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; flex: 1; min-height: 0; }
+.layout-transparency .col { font-size: 30px; min-height: 0; }
+.layout-transparency .col h3 { margin-bottom: 24px; }
+.layout-transparency pre { margin: 0; padding: 32px 36px; background: var(--panel); border-left: 8px solid var(--muted);
+  white-space: pre-wrap; overflow-wrap: anywhere; font: 24px/1.45 ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace; color: var(--ink); }
+.layout-transparency pre code { font: inherit; } /* plain "monospace" would shrink the text */
 /* Logo row ("logos:" in the slide header): sits at the bottom of the content area */
 .content > .logos { margin-top: auto; padding-top: 32px; display: flex; gap: 56px; align-items: center; flex-wrap: wrap; }
 .logos img { height: 72px; max-width: 280px; object-fit: contain; }

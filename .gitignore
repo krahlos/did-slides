@@ -25,3 +25,9 @@ desktop.ini
 *.tmp
 *.bak
 *.orig
+
+# Temporary folders
+.backup/
+.bak/
+.cache/
+.tmp/

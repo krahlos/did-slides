@@ -1,6 +1,47 @@
 title = "Die EUDI-Wallet und d-you"
-subtitle = "Untertitel – Platzhalter"
+subtitle = "Was die digitale Brieftasche ab Januar kann – und was nicht"
 event = "DI.DAY · 6. Dezember 2026 · Ludwigsburg"
 duration = 26
+notes = """
+Entwurf nach Gliederung „Spannungsbogen“. Stand der Fakten: Recherche vom 3.11.2026 –
+alle Stellen mit PRÜFEN kurz vor dem Vortrag nachsehen.
+"""
 
-slides = []
+slides = [
+  "einstieg-ausweisfoto",
+  "kapitel-problem",
+  "vier-probleme",
+  "eidas-2",
+  "was-in-der-wallet",
+  "akzeptanzpflicht",
+  "kapitel-weg",
+  "fuenfeinhalb-jahre",
+  "zeitleiste-eu",
+  "zeitleiste-de",
+  "kapitel-nutzen",
+  "d-you",
+  "einrichtung",
+  "zum-start",
+  "was-2027-kommt",
+  "noch-ohne-termin",
+  "ehrliche-antwort",
+  "technik",
+  "datenschutz",
+  "kapitel-akteure",
+  "akteure",
+  "sprind",
+  "kosten",
+  "kapitel-streit",
+  "streit-signierte-daten",
+  "streit-pseudonyme",
+  "streit-sicherheit",
+  "streit-big-tech",
+  "streit-registrierung",
+  "gruene-position",
+  "berichterstattung",
+  "kapitel-fazit",
+  "fazit",
+  "fragen",
+  "quellen",
+  "transparenz",
+]

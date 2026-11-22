@@ -48,7 +48,11 @@ Git hooks run via [prek](https://prek.j178.dev) (`prek.toml`): `prek install`, t
 `prek run --all-files`. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org).
 Notes for AI agents are in [AGENTS.md](AGENTS.md).
 
-## Licenses
+## License
 
-- Font Atkinson Hyperlegible: SIL Open Font License, `src/fonts/OFL-LICENSE.txt`
-- marked (Markdown parser): MIT, `src/vendor/marked-LICENSE.md`
+[REUSE](https://reuse.software)-compliant, see [LICENSE](LICENSE) and [REUSE.toml](REUSE.toml):
+
+- Talk content (`data/`, `*.index.html`): [CC BY 4.0](LICENSES/CC-BY-4.0.txt), © 2026 krahlos
+- Code, configuration and docs: [EUPL-1.2](LICENSES/EUPL-1.2.txt), © 2026 krahlos
+- marked (Markdown parser): MIT AND BSD-3-Clause
+- Font Atkinson Hyperlegible: OFL-1.1, © 2020 Braille Institute of America, Inc.

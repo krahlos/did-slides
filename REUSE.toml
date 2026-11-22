@@ -1,0 +1,34 @@
+# Licensing per path (https://reuse.software). If several annotations match a file, the last one wins.
+version = 1
+
+# Default: code, config and docs
+[[annotations]]
+path = "**"
+SPDX-FileCopyrightText = "2026 krahlos"
+SPDX-License-Identifier = "EUPL-1.2"
+
+# Talk content: slides, notes, research, images by the author, generated decks
+[[annotations]]
+path = ["data/**", "*.index.html"]
+SPDX-FileCopyrightText = "2026 krahlos"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/vendor/marked.min.js"
+SPDX-FileCopyrightText = [
+  "2018+ MarkedJS (https://github.com/markedjs/)",
+  "2011-2018 Christopher Jeffrey (https://github.com/chjj/)",
+  "2004 John Gruber (http://daringfireball.net/)",
+]
+SPDX-License-Identifier = "MIT AND BSD-3-Clause"
+
+[[annotations]]
+path = "src/fonts/**"
+SPDX-FileCopyrightText = "2020 Braille Institute of America, Inc."
+SPDX-License-Identifier = "OFL-1.1"
+
+# Third-party images: add one annotation per file here, e.g.
+# [[annotations]]
+# path = "data/eudi-wallet/img/eu-flag.svg"
+# SPDX-FileCopyrightText = "European Union"
+# SPDX-License-Identifier = "LicenseRef-EU-Emblem"

@@ -1,0 +1,28 @@
+Licensing overview
+==================
+
+This repository follows the REUSE specification (https://reuse.software).
+The authoritative per-file licensing is in REUSE.toml; full license texts
+are in LICENSES/.
+
+Talk content - CC-BY-4.0
+  data/**, *.index.html
+  Copyright 2026 krahlos
+  Slides, speaker notes and research notes. You may share and adapt them,
+  also commercially, as long as you give credit ("krahlos, CC BY 4.0")
+  and indicate changes. See LICENSES/CC-BY-4.0.txt.
+
+Code, configuration and docs - EUPL-1.2
+  everything else, unless listed below
+  Copyright 2026 krahlos
+  European Union Public Licence v1.2. See LICENSES/EUPL-1.2.txt.
+
+Third-party components
+  src/vendor/marked.min.js   marked - MIT AND BSD-3-Clause
+                             Copyright 2018+ MarkedJS, 2011-2018 Christopher
+                             Jeffrey, 2004 John Gruber
+  src/fonts/*                Atkinson Hyperlegible - OFL-1.1
+                             Copyright 2020 Braille Institute of America, Inc.
+
+Logos and images of third parties keep their own terms; each one is listed
+in REUSE.toml with its source.

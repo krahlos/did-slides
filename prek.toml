@@ -3,8 +3,8 @@
 #:schema https://www.schemastore.org/prek.json
 
 default_install_hook_types = ["pre-commit", "commit-msg"]
-# Leave vendored code and generated slides alone
-exclude = '^src/vendor/|\.index\.html$'
+# Leave vendored code, verbatim license texts and generated slides alone
+exclude = '^(src/vendor|LICENSES)/|\.index\.html$'
 
 [[repos]]
 repo = "builtin"
@@ -86,6 +86,14 @@ args = ["--fix"]
 exclude = '(^|/)slides\.md$'
 
 # No codespell: English-only, it "fixes" German words in slides and notes (als→also, vor→for).
+
+# Every file needs a license (REUSE.toml); new third-party images need their own entry.
+[[repos]]
+repo = "https://github.com/fsfe/reuse-tool"
+rev = "v6.3.0"
+
+[[repos.hooks]]
+id = "reuse"
 
 # Regenerate the baseline: uvx detect-secrets@1.5.0 scan --exclude-files '^src/vendor/|\.index\.html$' > .secrets.baseline
 [[repos]]

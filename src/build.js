@@ -15,7 +15,10 @@
 //
 // slides/<name>.md – one slide per file, starting with a header block:
 //   ---
-//   layout: default        (section|agenda|default|statement|timeline|procon|table|image|sources|transparency)
+//   layout: default        (section|agenda|default|statement|quote|timeline|procon|table|image|diagram|sources|transparency)
+//                           quote: a > blockquote (**bold** = highlight), the paragraph after it is the attribution
+//                           diagram: a ```mermaid block (rendered in the browser, theme colors); any other text
+//                           besides the heading goes into a column right of the diagram
 //                           agenda lists the headings of all section slides automatically;
 //                           sources and transparency: ### headings start columns (prompt as ``` block)
 //   source: Drs. 21/7319   (short source for the footer, inline Markdown allowed)
@@ -116,6 +119,13 @@ function content(s, talk, chapters) {
     const credit = s.meta.credit ? `<figcaption>${marked.parseInline(s.meta.credit)}</figcaption>` : '';
     return `<figure>${img}${credit}</figure><div class="text">${marked.parse(s.body)}</div>`;
   }
+  if (L === 'diagram') {
+    const m = s.body.match(/^```mermaid\n([\s\S]*?)^```$/m);
+    const heading = (s.body.match(/^#{1,3} .+$/m) || [''])[0];
+    const text = s.body.replace(m ? m[0] : '', '').replace(heading, '').trim();
+    const chart = m ? `<pre class="mermaid">${esc(m[1])}</pre>` : '<div class="img-placeholder">Diagramm folgt</div>';
+    return marked.parse(heading) + `<div class="diagram">${chart}${text ? `<div class="text">${marked.parse(text)}</div>` : ''}</div>`;
+  }
   return marked.parse(s.body);
 }
 
@@ -180,7 +190,7 @@ ${THEMES.map(t => `<link rel="stylesheet" href="src/${t}.style.css">`).join('\n'
 ${html}
 </div>
 <div class="progress"><span></span></div>
-<script src="src/deck.js"></script>
+${slides.some(s => s.meta.layout === 'diagram') ? '<script src="src/vendor/mermaid.min.js"></script>\n' : ''}<script src="src/deck.js"></script>
 </body>
 </html>
 `;

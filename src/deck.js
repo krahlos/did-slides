@@ -19,6 +19,23 @@
     (cols.length ? cols : s.querySelectorAll('.content > ul > li, .content > ol > li'))
       .forEach(e => e.classList.add('step'));
   }
+  // Diagrams (layout: diagram): keep the Mermaid source before the presenter view clones the deck,
+  // render after the font has loaded (text is measured) and again on every theme switch.
+  document.querySelectorAll('pre.mermaid').forEach(d => { d.dataset.src = d.textContent; });
+  function renderDiagrams() {
+    const nodes = [...document.querySelectorAll('pre.mermaid')];
+    if (!nodes.length || !window.mermaid) return;
+    const css = getComputedStyle(document.documentElement), v = n => css.getPropertyValue(n).trim();
+    mermaid.initialize({ startOnLoad: false, theme: 'base', flowchart: { wrappingWidth: 400, subGraphTitleMargin: { top: 8, bottom: 16 } }, themeVariables: {
+      fontFamily: getComputedStyle(document.body).fontFamily, fontSize: '22px', background: v('--bg'),
+      primaryColor: v('--panel'), primaryTextColor: v('--ink'), primaryBorderColor: v('--accent'), textColor: v('--ink'),
+      lineColor: v('--muted'), clusterBkg: v('--bg'), clusterBorder: v('--rule'), edgeLabelBackground: v('--bg') } });
+    nodes.forEach(d => { d.removeAttribute('data-processed'); d.textContent = d.dataset.src; });
+    // Mermaid measures labels on screen: render unscaled, or boxes come out too small in small windows
+    [deck, nextDeck].forEach(d => { if (d) d.style.transform = 'none'; });
+    mermaid.run({ nodes }).finally(fitAll);
+  }
+
   const stepsOf = i => (slides[i] ? slides[i].querySelectorAll('.step').length : 0);
 
   let idx = 0, step = 0, other = null, t0 = null, nextDeck = null;
@@ -91,6 +108,7 @@
   const THEME_KEYS = { e: 'eu', g: 'gruene', d: 'did' };
   function setTheme(t, remote) {
     document.documentElement.dataset.theme = t;
+    renderDiagrams();
     if (!remote && other && !other.closed) other.postMessage({ theme: t }, '*');
   }
 
@@ -141,5 +159,5 @@
   addEventListener('resize', fitAll);
   fitAll();
   go((parseInt(location.hash.slice(1), 10) || 1) - 1, 0, { nav: false });
-  document.fonts && document.fonts.ready.then(fitAll);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitAll(); renderDiagrams(); });
 })();

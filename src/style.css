@@ -99,6 +99,11 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-statement h2::after { display: none; }
 .layout-statement p { font-size: 52px; max-width: 1450px; }
 
+/* quote: heading on top, quote centered below, the paragraph after the quote is the attribution */
+.layout-quote blockquote { margin: auto 0 0; padding-left: 56px; border-left: 12px solid var(--bar); font-size: 44px; line-height: 1.35; }
+.layout-quote blockquote strong { color: var(--accent); }
+.layout-quote blockquote + p { margin: 40px 0 auto; padding-left: 68px; font-size: 30px; color: var(--muted); }
+
 /* timeline: list "- **Date** text" becomes a horizontal timeline */
 /* Each item draws its own dot and the line segment from the previous dot, so both share one
    origin and, with steps, the line grows with every revealed item. */
@@ -127,6 +132,13 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-image img { max-width: 100%; max-height: 680px; object-fit: contain; }
 .layout-image figcaption { font-size: 22px; color: var(--muted); margin-top: 16px; }
 .img-placeholder { height: 600px; border: 4px dashed var(--rule); display: grid; place-items: center; color: var(--muted); font-size: 36px; }
+
+/* diagram: Mermaid diagram, optional text column on the right */
+.layout-diagram .diagram { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; }
+.layout-diagram .diagram:has(.text) { grid-template-columns: 1.2fr 1fr; }
+.layout-diagram pre.mermaid { margin: 0; height: 100%; min-height: 0; display: flex; justify-content: center; align-items: center; visibility: hidden; }
+.layout-diagram pre.mermaid[data-processed] { visibility: inherit; }
+.layout-diagram pre.mermaid svg { width: 100%; height: 100%; max-width: none !important; }
 
 /* sources */
 .layout-sources .content > ul { columns: 2; column-gap: 80px; font-size: 26px; line-height: 1.3; }

@@ -28,6 +28,11 @@ SPDX-FileCopyrightText = "2009 Kazuhiko Arase"
 SPDX-License-Identifier = "MIT"
 
 [[annotations]]
+path = "src/vendor/mermaid.min.js"
+SPDX-FileCopyrightText = "2014-2022 Knut Sveidqvist"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
 path = "src/vendor/smol-toml.cjs"
 SPDX-FileCopyrightText = "Squirrel Chat et al."
 SPDX-License-Identifier = "BSD-3-Clause"

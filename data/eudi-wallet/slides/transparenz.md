@@ -17,6 +17,6 @@ Strukturiere mir bitte einen 20 bis 30-minütigen Vortrag zur EUDI-Wallet [https
 ```
 
 Note:
-Prompt wörtlich aus data/eudi-wallet/vortrag-gliederung.md (Abschnitt „Transparenzhinweis“, Recherche vom 3.11.2026, 21:26 Uhr).
+Prompt wörtlich aus der Vortragsgliederung (vortrag-gliederung.md, im Repo bis Commit 61f4b9f; Abschnitt „Transparenzhinweis“, Recherche vom 3.11.2026, 21:26 Uhr).
 
 PRÜFEN: „Faktenprüfung“ erst eintragen, wenn die PRÜFEN-Stellen erledigt sind.

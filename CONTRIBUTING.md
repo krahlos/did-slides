@@ -20,6 +20,8 @@ Contributions are welcome — no approval needed to get started.
 - Edit `data/<talk>/slides.md`, never the generated `*.index.html`; rebuild with `node src/build.js`
 - Third-party images only with cleared rights, plus an entry in [`REUSE.toml`](REUSE.toml)
 - Use [Conventional Commits][cc] and [`prek`][prek], since the hooks are anyway enforced on CI
+- PRs are squash-merged with the PR title as commit message, so the title must be a
+  Conventional Commit too (e.g. `fix: correct date of the eIDAS vote`); CI checks it
 
 ## License
 

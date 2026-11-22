@@ -19,6 +19,9 @@ const { marked } = require('./vendor/marked.min.js');
 
 const ROOT = path.join(__dirname, '..');
 const DATA = path.join(ROOT, 'data');
+// ponytail: one author and license for all talks; move into the title slide header if that ever differs
+const LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/deed.de';
+const LICENSE_LINE = `<p class="license">Folien: krahlos · <a href="${LICENSE_URL}">CC BY 4.0</a></p>`;
 
 const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const headingText = body => (body.match(/^#{1,3} (.+)$/m) || [, ''])[1].trim();
@@ -73,7 +76,7 @@ function build(talk) {
       `<span>${i + 1} / ${slides.length}</span></footer>`;
     const notes = s.notes ? `<aside class="notes">${marked.parse(s.notes)}</aside>` : '';
     const steps = s.meta.steps === 'true' ? ' data-steps' : '';
-    return `<section class="slide layout-${L}"${steps}>\n<div class="content">${pre}${content(s, talk)}</div>\n${footer}${notes}</section>`;
+    return `<section class="slide layout-${L}"${steps}>\n<div class="content">${pre}${content(s, talk)}${L === 'sources' ? LICENSE_LINE : ''}</div>\n${footer}${notes}</section>`;
   }).join('\n\n');
 
   const title = slides[0].meta.title || headingText(slides[0].body) || talk;
@@ -84,6 +87,8 @@ function build(talk) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
+<meta name="author" content="krahlos">
+<link rel="license" href="${LICENSE_URL}">
 <link rel="stylesheet" href="src/style.css">
 </head>
 <body data-duration="${duration}">

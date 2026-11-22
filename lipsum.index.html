@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lorem ipsum dolor</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body data-duration="10">
+<!-- Erzeugt von src/build.js aus data/lipsum/slides.md. Nicht von Hand bearbeiten. -->
+<div class="deck">
+<section class="slide layout-title">
+<div class="content"><h1>Lorem ipsum dolor</h1>
+<h2>Musterdeck mit allen Folientypen</h2>
+<p>DI.DAY · Datum · Ort</p>
+</div>
+<aside class="notes"><p>Musterfolie <strong>title</strong>. <code>duration: 10</code> setzt die Sollzeit des Timers in der Referentenansicht (Taste S). Notizen erscheinen mit Taste N.</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">01</div><h2>Lorem ipsum dolor sit amet</h2>
+<p>Consectetur adipiscing elit, sed do eiusmod tempor.</p>
+</div>
+<aside class="notes"><p>Musterfolie <strong>section</strong>. <code>chapter</code> liefert den Kurznamen für die Fußzeile, die Nummer zählt automatisch.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Folientyp default</h2>
+<ul>
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetur adipiscing elit, sed do eiusmod</li>
+<li>Tempor incididunt ut labore et dolore<ul>
+<li>Unterpunkt magna aliqua</li>
+</ul>
+</li>
+<li>Ut enim ad minim veniam</li>
+</ul>
+</div>
+<footer><span>1 · Lorem ipsum</span><span>Lorem 2024/1183</span><span>3 / 11</span></footer><aside class="notes"><p>Musterfolie <strong>default</strong>.</p>
+</aside></section>
+
+<section class="slide layout-default" data-steps>
+<div class="content"><h2>Folientyp default mit steps</h2>
+<ol>
+<li>Erster Punkt erscheint nach Tastendruck</li>
+<li>Zweiter Punkt</li>
+<li>Dritter Punkt</li>
+</ol>
+</div>
+<footer><span>1 · Lorem ipsum</span><span>Lorem ipsum</span><span>4 / 11</span></footer><aside class="notes"><p><code>steps: true</code> deckt die Punkte einzeln auf.</p>
+</aside></section>
+
+<section class="slide layout-statement">
+<div class="content"><h2>5½ Jahre</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+</div>
+<footer><span>1 · Lorem ipsum</span><span>Lorem ipsum</span><span>5 / 11</span></footer><aside class="notes"><p>Musterfolie <strong>statement</strong>: eine große Zahl oder Aussage.</p>
+</aside></section>
+
+<section class="slide layout-timeline">
+<div class="content"><h2>Folientyp timeline</h2>
+<ul>
+<li><strong>2021</strong> Lorem ipsum dolor sit amet</li>
+<li><strong>2022</strong> Consectetur adipiscing</li>
+<li><strong>2023</strong> Sed do eiusmod tempor</li>
+<li><strong>2024</strong> Incididunt ut labore</li>
+<li><strong>2026</strong> Dolore magna aliqua</li>
+<li><strong>2027</strong> Ut enim ad minim</li>
+</ul>
+</div>
+<footer><span>1 · Lorem ipsum</span><span>Lorem ipsum</span><span>6 / 11</span></footer><aside class="notes"><p>Musterfolie <strong>timeline</strong>: Liste mit <code>- **Datum** Text</code>.</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">02</div><h2>Dolor sit amet</h2>
+</div>
+<aside class="notes"><p>Zweite <strong>section</strong>-Folie ohne <code>chapter</code>: Die Fußzeile nimmt dann die Überschrift.</p>
+</aside></section>
+
+<section class="slide layout-procon" data-steps>
+<div class="content"><h2>Folientyp procon</h2>
+<div class="cols"><div class="col"><h3>Kritik</h3>
+<ul>
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetur adipiscing elit</li>
+</ul>
+</div><div class="col"><h3>Regierung / Projekt</h3>
+<ul>
+<li>Sed do eiusmod tempor</li>
+<li>Incididunt ut labore et dolore</li>
+</ul>
+</div></div></div>
+<footer><span>2 · Dolor sit amet</span><span>Lorem ipsum</span><span>8 / 11</span></footer><aside class="notes"><p>Beide Spalten gleich gewichtet. Mit <code>steps: true</code> erscheinen die Spalten nacheinander. Spalten beginnen mit <code>###</code>.</p>
+</aside></section>
+
+<section class="slide layout-table">
+<div class="content"><h2>Folientyp table</h2>
+<table>
+<thead>
+<tr>
+<th>Spalte A</th>
+<th>Spalte B</th>
+<th>Spalte C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lorem ipsum</td>
+<td>Dolor sit</td>
+<td>Amet</td>
+</tr>
+<tr>
+<td>Consectetur</td>
+<td>Adipiscing</td>
+<td>Elit</td>
+</tr>
+<tr>
+<td>Sed do</td>
+<td>Eiusmod</td>
+<td>Tempor</td>
+</tr>
+</tbody></table>
+</div>
+<footer><span>2 · Dolor sit amet</span><span>Lorem ipsum</span><span>9 / 11</span></footer></section>
+
+<section class="slide layout-image">
+<div class="content"><figure><div class="img-placeholder">Bild folgt</div></figure><div class="text"><h2>Folientyp image</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<ul>
+<li>Bild über <code>image:</code> im Kopf, relativ zu <code>data/&lt;thema&gt;/</code></li>
+<li>Bildnachweis über <code>credit:</code></li>
+</ul>
+</div></div>
+<footer><span>2 · Dolor sit amet</span><span>Lorem ipsum</span><span>10 / 11</span></footer><aside class="notes"><p>Ohne <code>image:</code> erscheint der Platzhalter „Bild folgt“.</p>
+</aside></section>
+
+<section class="slide layout-sources">
+<div class="content"><h2>Quellen</h2>
+<ul>
+<li><a href="https://example.org">Lorem ipsum dolor</a></li>
+<li><a href="https://example.org">Consectetur adipiscing</a></li>
+<li><a href="https://example.org">Sed do eiusmod</a></li>
+<li>Tempor incididunt ut labore</li>
+<li>Dolore magna aliqua</li>
+<li>Ut enim ad minim veniam</li>
+</ul>
+</div>
+<footer><span>2 · Dolor sit amet</span><span></span><span>11 / 11</span></footer></section>
+</div>
+<div class="progress"><span></span></div>
+<script src="src/deck.js"></script>
+</body>
+</html>

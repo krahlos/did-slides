@@ -1,5 +1,5 @@
 # Runs the same prek hooks as locally (prek.toml) on every push and pull request.
-name: prek
+name: checks
 
 on:
   push:

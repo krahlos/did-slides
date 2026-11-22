@@ -48,20 +48,24 @@ Jump to a slide with its number in the URL, e.g. `eudi-wallet.index.html#5`.
 
 ## Editing slides
 
-Slides live in `data/<talk>/slides.md`. Rebuild afterwards (requires Node.js):
+Each talk has one Markdown file per slide in `data/<talk>/slides/`. Their order, the title slide
+and the timer target come from `data/<talk>/deck.toml`; to move a slide, move its line there.
+Rebuild afterwards (requires Node.js):
 
 ```sh
 node src/build.js              # all talks
 node src/build.js fediverse    # a single talk
 ```
 
-New talk: create `data/<talk>/` with a `slides.md` and build. Slide layouts and header keys are
-documented at the top of [`src/build.js`](src/build.js).
+New talk: create `data/<talk>/deck.toml` (and `slides/`) and build. The `deck.toml` keys, slide
+layouts and header keys are documented at the top of [`src/build.js`](src/build.js).
 
 ```text
-src/                shared code and design (build.js, deck.js, style.css, font, marked)
-data/<talk>/        slides.md, research notes, img/
-<talk>.index.html   generated – do not edit by hand
+src/                     shared code and design (build.js, deck.js, style.css, font, vendor/)
+data/<talk>/deck.toml    title, subtitle, event, duration, slide order
+data/<talk>/slides/      one .md per slide (files not listed in deck.toml are skipped)
+data/<talk>/             research notes, img/
+<talk>.index.html        generated – do not edit by hand
 ```
 
 ## Development
@@ -80,6 +84,7 @@ Notes for AI agents are in [AGENTS.md](AGENTS.md).
 - Talk content (`data/`, `*.index.html`): [CC BY 4.0](LICENSES/CC-BY-4.0.txt), © 2026 krahlos
 - Code, configuration and docs: [EUPL-1.2](LICENSES/EUPL-1.2.txt), © 2026 krahlos
 - marked (Markdown parser): MIT AND BSD-3-Clause
+- smol-toml (TOML parser): BSD-3-Clause
 - Font Atkinson Hyperlegible: OFL-1.1, © 2020 Braille Institute of America, Inc.
 
 ## Disclaimer

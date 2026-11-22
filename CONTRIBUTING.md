@@ -8,7 +8,7 @@ Contributions are welcome — no approval needed to get started.
   Open an issue or PR with the correct value and its source.
 - **Sources**: Better or more primary sources for an existing claim, or a replacement for a dead link.
 - **New talks**: Create an issue describing the topic, then start a draft PR with a new
-  `data/<talk>/slides.md`. `lipsum.index.html` shows every slide layout.
+  `data/<talk>/deck.toml` and `slides/`. `lipsum.index.html` shows every slide layout.
 
 ## Guidelines
 
@@ -17,7 +17,8 @@ Contributions are welcome — no approval needed to get started.
 - Keep the tone sober and neutral: no advertising, no party politics, criticism and response
   get equal weight
 - Slides and speaker notes are in German, everything else (docs, comments, commits) in English
-- Edit `data/<talk>/slides.md`, never the generated `*.index.html`; rebuild with `node src/build.js`
+- Edit `data/<talk>/deck.toml` and `slides/*.md`, never the generated `*.index.html`; rebuild
+  with `node src/build.js`
 - Third-party images only with cleared rights, plus an entry in [`REUSE.toml`](REUSE.toml)
 - Use [Conventional Commits][cc] and [`prek`][prek], since the hooks are anyway enforced on CI
 - PRs are squash-merged with the PR title as commit message, so the title must be a

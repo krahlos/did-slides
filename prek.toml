@@ -23,6 +23,9 @@ id = "check-toml"
 id = "check-json"
 
 [[repos.hooks]]
+id = "check-yaml"
+
+[[repos.hooks]]
 id = "detect-private-key"
 
 [[repos.hooks]]

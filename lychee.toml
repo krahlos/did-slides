@@ -1,0 +1,13 @@
+# Link checker config (https://lychee.cli.rs). Run locally:
+#   docker run --rm -v "$PWD":/input:ro,Z -w /input lycheeverse/lychee:0.24.2 --no-progress '**/*.md'
+
+# Sites that always refuse bots; check these links by hand.
+exclude = [
+  '^https://background\.tagesspiegel\.de/', # paywall, 403
+  '^https://www\.europarl\.europa\.eu/',    # bot protection, 403
+]
+
+# Rate limited (429) when hit in parallel
+[hosts."digital-strategy.ec.europa.eu"]
+concurrency = 1
+request_interval = "2s"

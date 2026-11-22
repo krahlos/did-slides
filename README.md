@@ -46,6 +46,8 @@ documented at the top of `src/build.js`.
 
 Git hooks run via [prek](https://prek.j178.dev) (`prek.toml`): `prek install`, then
 `prek run --all-files`. Commit messages follow [Conventional Commits](https://www.conventionalcommits.org).
+Links in Markdown files are checked weekly by [lychee](https://lychee.cli.rs) (`lychee.toml`,
+command for a local run at its top).
 Notes for AI agents are in [AGENTS.md](AGENTS.md).
 
 ## License

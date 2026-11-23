@@ -1,6 +1,7 @@
 ---
 layout: table
 source: eurosky.tech/about, /faq
+logos: Eurosky
 ---
 ## Wer hinter Eurosky steht
 

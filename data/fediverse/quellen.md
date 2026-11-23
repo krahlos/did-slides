@@ -74,7 +74,12 @@ Alle Seiten abgerufen am 23.11.2026.
 - Tangled, warum ATProto: <https://tangled.org/docs/why-atproto/>
 - Tangled, Finanzierung 02.03.2026: <https://blog.tangled.org/seed>
 - Skylight: <https://skylight.social/>
-- WhiteWind: <https://whtwnd.com/about>
+- pckt.blog: <https://pckt.blog/>
+- pckt.blog, Preise: <https://pckt.blog/plans>
+- pckt.blog, Bluesky-Post zu standard.site (04.01.2026): <https://bsky.app/profile/pckt.blog/post/3mbmz3hczz226>
+- standard.site: <https://standard.site/>
+- standard.site, FAQ: <https://standard.site/docs/faq/>
+- Bluesky-Blog, Summer of Standard.site (22.06.2026): <https://bsky.social/about/blog/06-22-2026-summer-of-standard-site>
 - ATStore (App-Verzeichnis): <https://atstore.fyi/>
 - atproto.com, Lexicon: <https://atproto.com/guides/lexicon>
 

@@ -27,7 +27,7 @@ qr: https://github.com/krahlos/did-slides/blob/main/data/fediverse/quellen.md
 
 ### Apps und Ausblick
 
-- flashes.blue, tangled.org, skylight.social, whtwnd.com, atstore.fyi
+- flashes.blue, tangled.org, skylight.social, pckt.blog, standard.site, atstore.fyi
 - ARD/ZDF, ARTE, EBU
 - Europäisches Parlament (EPRS)
 

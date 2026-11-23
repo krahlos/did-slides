@@ -1,7 +1,6 @@
 ---
 layout: default
 source: BMDS-Pressemitteilung 53/2026; Börsen-Zeitung, 06.11.2026
-logos: Sparkasse, Vodafone, Deutsche Post, Rossmann
 ---
 ## Was zum Start gehen soll
 

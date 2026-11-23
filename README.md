@@ -50,6 +50,9 @@ connection needed — it runs in any current browser.
 
 Jump to a slide with its number in the URL, e.g. `eudi-wallet.index.html#5`.
 
+PDF: print the deck (<kbd>Ctrl</kbd>+<kbd>P</kbd>) and save as PDF. Every slide becomes one 16:9 page with
+all steps revealed and without speaker notes; if colored backgrounds are missing, enable "Background graphics".
+
 ## Editing slides
 
 Each talk has one Markdown file per slide in `data/<talk>/slides/`. Their order, the title slide

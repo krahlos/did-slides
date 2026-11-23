@@ -120,6 +120,14 @@ body.show-notes:not(.presenter) .slide.active .notes {
 .layout-procon .col h3 { margin-bottom: 28px; }
 .layout-procon .col li::before { background: var(--muted); }
 
+/* cards: one card per ### heading, side by side */
+.layout-cards .cols { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 40px; margin: auto 0; }
+.layout-cards .col { background: var(--panel); border-top: 8px solid var(--accent); padding: 36px 40px; font-size: 30px; line-height: 1.35; }
+.layout-cards .col h3 { margin-bottom: 20px; }
+.layout-cards .card-logo { display: block; box-sizing: border-box; height: 96px; width: auto; max-width: 100%; margin-bottom: 24px; }
+.layout-cards img.card-logo { padding: 12px; background: #fff; border-radius: 20px; } /* app-icon tile: pale logos stay visible */
+.layout-cards .col p + p { margin-top: 16px; }
+
 /* table */
 .layout-table table { border-collapse: collapse; width: 100%; font-size: 32px; }
 .layout-table th { text-align: left; font-size: 26px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 4px solid var(--accent); padding: 0 24px 16px 0; }

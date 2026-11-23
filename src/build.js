@@ -15,7 +15,7 @@
 //
 // slides/<name>.md – one slide per file, starting with a header block:
 //   ---
-//   layout: default        (section|agenda|default|statement|quote|timeline|procon|table|image|diagram|code|sources|transparency)
+//   layout: default        (section|agenda|default|statement|quote|timeline|procon|cards|table|image|diagram|code|sources|transparency)
 //                           quote: a > blockquote (**bold** = highlight), the paragraph after it is the attribution
 //                           diagram: a ```mermaid block (rendered in the browser, theme colors); any other text
 //                           besides the heading goes into a column right of the diagram
@@ -25,8 +25,10 @@
 //                           (English or German), <- != <= >= become ← ≠ ≤ ≥, comments after ▷ or //
 //                           agenda lists the headings of all section slides automatically;
 //                           sources and transparency: ### headings start columns (prompt as ``` block)
+//                           cards: each ### heading starts a card, side by side (e.g. apps, examples);
+//                           logo on top if data/<talk>/img/logos/<slug of the ### heading>.svg|png|webp exists
 //   source: Drs. 21/7319   (short source for the footer, inline Markdown allowed)
-//   steps: true            (reveal list items, or procon columns, one by one)
+//   steps: true            (reveal list items, or procon columns and cards, one by one)
 //   chapter: Short name    (section only: chapter name for the footer, defaults to the heading)
 //   image: img/x.png       (image only, relative to data/<talk>/) · alt: … · credit: …
 //   logos: BMDS, SPRIND    (row of small logos at the bottom; file data/<talk>/img/logos/<slug>.svg|png|webp,
@@ -148,10 +150,15 @@ function content(s, talk, chapters) {
     const items = chapters.map((c, i) => `<li><span class="no">${String(i + 1).padStart(2, '0')}</span>${esc(c)}</li>`);
     return marked.parse(s.body) + `<ol class="agenda">${items.join('')}</ol>`;
   }
-  // ### headings split the body into columns: procon, transparency, and grouped sources
-  if (L === 'procon' || L === 'transparency' || (L === 'sources' && /^### /m.test(s.body))) {
+  // ### headings split the body into columns: procon, cards, transparency, and grouped sources
+  if (L === 'procon' || L === 'cards' || L === 'transparency' || (L === 'sources' && /^### /m.test(s.body))) {
     const [head, ...cols] = s.body.split(/^(?=### )/m);
-    return marked.parse(head) + '<div class="cols">' + cols.map(c => `<div class="col">${marked.parse(c)}</div>`).join('') + '</div>';
+    // cards: logo above the heading when data/<talk>/img/logos/<slug of heading> exists
+    // (an empty spacer of the same height when only some cards have a logo, so the headings line up)
+    const files = cols.map(c => L === 'cards' && logoFile(headingText(c), talk));
+    const logo = (c, i) => files[i] ? `<img class="card-logo" src="${esc(files[i])}" alt="">`
+      : files.some(Boolean) ? '<span class="card-logo"></span>' : '';
+    return marked.parse(head) + '<div class="cols">' + cols.map((c, i) => `<div class="col">${logo(c, i)}${marked.parse(c)}</div>`).join('') + '</div>';
   }
   if (L === 'image') {
     const src = s.meta.image && (/^[a-z]+:/i.test(s.meta.image) ? s.meta.image : `data/${talk}/${s.meta.image}`);
@@ -175,10 +182,12 @@ const slugify = s => s.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').r
   .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // "logos: A, B" -> row of logo images, or a labelled placeholder until the file exists.
+const logoFile = (name, talk) => ['svg', 'png', 'webp'].map(ext => `data/${talk}/img/logos/${slugify(name)}.${ext}`)
+  .find(f => fs.existsSync(path.join(ROOT, f)));
+
 function logoRow(list, talk, missing) {
   const items = list.split(',').map(s => s.trim()).filter(Boolean).map(name => {
-    const base = `data/${talk}/img/logos/${slugify(name)}`;
-    const file = ['svg', 'png', 'webp'].map(ext => `${base}.${ext}`).find(f => fs.existsSync(path.join(ROOT, f)));
+    const file = logoFile(name, talk);
     if (file) return `<img src="${esc(file)}" alt="${esc(name)}">`;
     missing.add(`${slugify(name)} (${name})`);
     return `<span class="logo-placeholder">${esc(name)}</span>`;

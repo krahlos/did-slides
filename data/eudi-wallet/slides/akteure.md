@@ -1,7 +1,7 @@
 ---
 layout: table
 source: eudi-wallet.gov.de; Drs. 21/7319; Bundestag
-logos: SPRIND
+logos: BMDS, SPRIND, Common Codes, Bundesnetzagentur
 ---
 ## Wer was macht
 

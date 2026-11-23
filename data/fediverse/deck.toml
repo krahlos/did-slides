@@ -1,5 +1,40 @@
-title = "Das Fediverse"
-subtitle = "Untertitel – Platzhalter"
+title = "Ein Konto, viele Apps"
+subtitle = "ATProto, Bluesky und Eurosky"
 event = "DI.DAY · Datum · Ort"
+duration = 20
+theme = "eurosky"
+notes = """
+Entwurf vom 23.11.2026. Fakten recherchiert am 23.11.2026 – alle Stellen mit PRÜFEN kurz vor dem Vortrag nachsehen.
+Event-Zeile und Dauer sind Platzhalter.
+"""
 
-slides = []
+slides = [
+  "agenda",
+  "kapitel-begriffe",
+  "zwei-netze",
+  "wie-email",
+  "kapitel-atproto",
+  "was-ist-atproto",
+  "bausteine",
+  "identitaet",
+  "moderation-feeds",
+  "umzug-protokoll",
+  "kapitel-bluesky",
+  "zitat-dorsey",
+  "zeitleiste-bluesky",
+  "bluesky-heute",
+  "abhaengigkeit",
+  "kapitel-eurosky",
+  "free-our-feeds",
+  "zeitleiste-eurosky",
+  "wer-ist-eurosky",
+  "angebot",
+  "mu",
+  "noch-abhaengig",
+  "eu-haul",
+  "mu-ios",
+  "mu-android",
+  "fragen",
+  "quellen",
+  "transparenz",
+]

@@ -72,3 +72,8 @@ SPDX-License-Identifier = "LicenseRef-Tux"
 path = "data/linux/img/logos/linux-mint.svg"
 SPDX-FileCopyrightText = "2012-2014 Clement Lefebvre (Linux Mint)"
 SPDX-License-Identifier = "GPL-2.0-or-later"
+
+[[annotations]]
+path = "data/fediverse/img/logos/mu.svg"
+SPDX-FileCopyrightText = "Stichting Modal"
+SPDX-License-Identifier = "LicenseRef-mu-Brand"

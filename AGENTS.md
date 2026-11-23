@@ -30,8 +30,8 @@ Fediverse. `lipsum` is the sample deck showing every slide layout.
 - Must work over `file://`: no ES modules, no `fetch`, no CDN. Everything lives in the repo.
 - No npm and no build tool besides `node src/build.js`. Ask before adding any dependency.
 - Sober design: Atkinson Hyperlegible, light background. Default theme `eu` (EU blue `#003399`,
-  politically neutral). Optional themes `gruene` and `did` (`src/<theme>.style.css`, `theme` in
-  `deck.toml`, Shift+E/G/D live) reuse only the public brand colors: never their logos, sunflower
+  politically neutral). Optional themes `gruene`, `did` and `eurosky` (`src/<theme>.style.css`,
+  `theme` in `deck.toml`, Shift+E/G/D/K live) reuse only the public brand colors: never their logos, sunflower
   or typefaces. Text colors must keep at least 4.5:1 contrast; light brand colors only for bars.
 - Criticism and response (`layout: procon`) always get equal visual weight.
 - Third-party images only with cleared rights; credit via `credit:`, license file next to the image.

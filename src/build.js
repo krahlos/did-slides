@@ -8,7 +8,7 @@
 //   event    = "DI.DAY · 6. Dezember 2026 · Ludwigsburg"  (optional)
 //   duration = 26                               (optional: target minutes for the presenter timer)
 //   notes    = "…"                              (optional: speaker notes for the title slide)
-//   theme    = "eu"                             (optional: eu | gruene | did, default eu; Shift+E/G/D switch live)
+//   theme    = "eu"                             (optional: eu | gruene | did | eurosky, default eu; Shift+E/G/D/K switch live)
 //   link     = "https://github.com/…"           (optional: link shown bottom left on the title slide)
 //   qr       = "https://…"                      (optional: QR code on the title slide, see qr: below)
 //   listed   = false                            (optional: hide the talk from index.html, e.g. the sample deck)
@@ -72,7 +72,7 @@ const DATA = path.join(ROOT, 'data');
 const LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/deed.de';
 const LICENSE_LINE = `<p class="license">Folien: krahlos · <a href="${LICENSE_URL}">CC BY 4.0</a></p>`;
 
-const THEMES = ['eu', 'gruene', 'did']; // each has src/<name>.style.css
+const THEMES = ['eu', 'gruene', 'did', 'eurosky']; // each has src/<name>.style.css
 
 // Code blocks: highlighted at build time; ```algo becomes a numbered LaTeX-style algorithm box.
 let algoNo = 0; // per talk, reset in build()

@@ -1,0 +1,16 @@
+/* Theme "eurosky": colors of the Eurosky website (https://eurosky.tech, CSS custom properties
+   --mu #5E224D, --pink #FFBCF1, --ink #1A1A1A, --charcoal #6B6965, --stone #ECEAE5, page
+   background #F7F6F2; read 2026-11-23). Colors only: the Eurosky and mu logos have no free license (Terms §12, owned by
+   Stichting Modal), and no typeface. Key: Shift+K. */
+html[data-theme="eurosky"] {
+  --accent: #5e224d;      /* mu plum: text-safe on stone (10.7:1) */
+  --bar: #5e224d;
+  --ink: #1a1a1a;
+  --muted: #6b6965;       /* charcoal: 5.1:1 on bg, 4.6:1 on panel */
+  --rule: #d6d4d0;
+  --panel: #eceae5;       /* stone */
+  --bg: #f7f6f2;
+  --section-bg: #5e224d;
+  --section-ink: #ffffff;
+  --section-bar: #ffbcf1; /* pink: decorative only, too light for text on white */
+}

@@ -1,6 +1,6 @@
 // Slide controller. Runs via double-click (file://): no modules, no fetch.
 // Keys: → Space PgDn = next · ← PgUp = back · Home/End · N notes · S presenter view · F fullscreen · P reset timer
-//       Shift+E / Shift+G / Shift+D = theme eu / gruene / did (src/<theme>.style.css)
+//       Shift+E / Shift+G / Shift+D / Shift+K = theme eu / gruene / did / eurosky (src/<theme>.style.css)
 //       digits + Enter = jump to slide (1 5 Enter -> slide 15), Esc cancels, Backspace deletes a digit
 // On-screen labels stay German: they are part of the talk.
 (() => {
@@ -105,7 +105,7 @@
   }
 
   // Themes: CSS custom properties per <html data-theme>, mirrored to the other window.
-  const THEME_KEYS = { e: 'eu', g: 'gruene', d: 'did' };
+  const THEME_KEYS = { e: 'eu', g: 'gruene', d: 'did', k: 'eurosky' };
   function setTheme(t, remote) {
     document.documentElement.dataset.theme = t;
     renderDiagrams();

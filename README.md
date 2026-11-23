@@ -20,6 +20,8 @@ digital topics. Double-click, present, pass on._
 
 ## Talks
 
+Online: <https://krahlos.github.io/did-slides/> (published from `main` via GitHub Pages).
+
 | Talk | Deck |
 | --- | --- |
 | The EUDI Wallet and d-you | [`eudi-wallet.index.html`](eudi-wallet.index.html) |
@@ -68,6 +70,7 @@ data/<talk>/deck.toml    title, subtitle, event, duration, slide order
 data/<talk>/slides/      one .md per slide (files not listed in deck.toml are skipped)
 data/<talk>/             research notes, img/
 <talk>.index.html        generated – do not edit by hand
+index.html               generated overview of all listed talks (hide one with listed = false)
 ```
 
 ## Development

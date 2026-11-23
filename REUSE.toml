@@ -9,7 +9,7 @@ SPDX-License-Identifier = "EUPL-1.2"
 
 # Talk content: slides, notes, research, images by the author, generated decks
 [[annotations]]
-path = ["data/**", "*.index.html"]
+path = ["data/**", "*.index.html", "index.html"]
 SPDX-FileCopyrightText = "2026 krahlos"
 SPDX-License-Identifier = "CC-BY-4.0"
 

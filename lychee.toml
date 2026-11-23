@@ -5,10 +5,15 @@
 exclude = [
   '^https://background\.tagesspiegel\.de/', # paywall, 403
   '^https://www\.europarl\.europa\.eu/',    # bot protection, 403
+  '^https://www\.ebu\.ch/',                 # bot protection, 403
   '^https://www\.gesetze-im-internet\.de/', # times out from GitHub runners, fine locally
 ]
 
 # Rate limited (429) when hit in parallel
 [hosts."digital-strategy.ec.europa.eu"]
+concurrency = 1
+request_interval = "2s"
+
+[hosts."www.gnu.org"]
 concurrency = 1
 request_interval = "2s"

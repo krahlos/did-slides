@@ -3,6 +3,9 @@
 # Personal Claude settings (shared ones live in .claude/settings.json)
 .claude/settings.local.json
 
+# Playwright MCP output (screenshots, snapshots) from agent sessions
+.playwright-mcp/
+
 # Node (in case npm packages ever get added)
 node_modules/
 

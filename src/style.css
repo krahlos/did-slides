@@ -230,3 +230,17 @@ body.presenter { background: #1b1f27; color: #e8ebf0; }
 .presenter .step { opacity: .35; }
 .presenter .step.shown { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Print / "Save as PDF": one slide per 16:9 page (1920×1080 CSS px), every step revealed, no notes
+   or controls. Overrides the scale transform deck.js sets inline. Turn on "Background graphics"
+   in the print dialog if the browser does not honour print-color-adjust. */
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  html, body { height: auto; overflow: visible; background: none; }
+  .deck { position: static; width: auto; height: auto; transform: none !important; }
+  .slide { position: relative; width: 1920px; height: 1080px; overflow: hidden; opacity: 1; visibility: visible; transition: none; break-after: page; }
+  .slide:last-child { break-after: auto; }
+  .step { opacity: 1; }
+  .notes, .progress, .jump { display: none !important; }
+}

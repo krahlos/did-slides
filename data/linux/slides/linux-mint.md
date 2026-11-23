@@ -16,4 +16,4 @@ Ehrlich bleiben: DistroWatch zählt Seitenaufrufe auf distrowatch.com, nicht ins
 
 Linux Mint finanziert sich über Spenden und Sponsoren.
 
-Logo: Platzhalter. Das Linux-Mint-Logo ist eine Marke. Nur mit geklärten Rechten unter `img/logos/linux-mint.svg` ablegen.
+Logo: offizielle Datei aus github.com/linuxmint/mintstick (GPL-2.0-or-later), unverändert. Marke: Laut linuxmint.com/faq.php darf das Logo in Dokumenten gezeigt werden, solange keine Verbindung zu Linux Mint behauptet wird.

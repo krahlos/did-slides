@@ -23,7 +23,6 @@ digital topics. Double-click, present, pass on._
 | Talk | Deck |
 | --- | --- |
 | The EUDI Wallet and d-you | [`eudi-wallet.index.html`](eudi-wallet.index.html) |
-| The digital euro | [`digitaler-euro.index.html`](digitaler-euro.index.html) |
 | The Fediverse | [`fediverse.index.html`](fediverse.index.html) |
 | Linux is not an operating system (12 April 2026) | [`linux.index.html`](linux.index.html) |
 | Sample deck with every layout | [`lipsum.index.html`](lipsum.index.html) |

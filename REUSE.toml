@@ -77,3 +77,15 @@ SPDX-License-Identifier = "GPL-2.0-or-later"
 path = "data/fediverse/img/logos/mu.svg"
 SPDX-FileCopyrightText = "Stichting Modal"
 SPDX-License-Identifier = "LicenseRef-mu-Brand"
+
+[[annotations]]
+path = "data/fediverse/img/logos/tangled.svg"
+SPDX-FileCopyrightText = "2025-2026 Tangled Labs Oy"
+SPDX-License-Identifier = "LicenseRef-Tangled-Brand"
+
+# Unmodified copy of frontend/public/whtwnd.svg from https://github.com/whtwnd/whitewind-blog (AGPL-3.0, no version
+# chosen in the repo, so any version applies per section 14). Trademark status unclear; asked: no.
+[[annotations]]
+path = "data/fediverse/img/logos/whitewind.svg"
+SPDX-FileCopyrightText = "Kota Nakashima (WhiteWind)"
+SPDX-License-Identifier = "AGPL-3.0-or-later"

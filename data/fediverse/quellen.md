@@ -63,6 +63,31 @@ Alle Seiten abgerufen am 23.11.2026.
 - Free Our Feeds, Kampagne und offener Brief: <https://freeourfeeds.com/campaign>
 - Open Future, 27.11.2025 (Eurosky Live): <https://openfuture.eu/blog/eurosky-dawns-building-infrastructure-for-sovereign-social-media/>
 
+- Eurosky Portal: <https://portal.eurosky.tech/> (portal.eurosky.social leitet weiter)
+- Eurosky Portal, Quellcode: <https://github.com/eurosky-social/eurosky-portal>
+
+## Apps
+
+- Flashes: <https://flashes.blue/>
+- Flashes, FAQ: <https://github.com/birdsongapps/Flashes/wiki/FAQ>
+- Tangled, Vorstellung 02.03.2025: <https://blog.tangled.org/intro>
+- Tangled, warum ATProto: <https://tangled.org/docs/why-atproto/>
+- Tangled, Finanzierung 02.03.2026: <https://blog.tangled.org/seed>
+- Skylight: <https://skylight.social/>
+- WhiteWind: <https://whtwnd.com/about>
+- ATStore (App-Verzeichnis): <https://atstore.fyi/>
+- atproto.com, Lexicon: <https://atproto.com/guides/lexicon>
+
+## Ausblick
+
+- ARD/ZDF-Streaming-Netzwerk, Pressemitteilung 22.12.2023: <https://www.presseportal.de/pm/29876/5678736>
+- ARTE, Wer wir sind: <https://www.arte.tv/sites/corporate/de/wer-wir-sind/>
+- EBU, About: <https://www.ebu.ch/about>
+- EBU, Public Spaces Incubator und Streaming OS (Oktober 2024): <https://www.ebu.ch/news/2024/10/germany's-public-broadcasters-help-drive-international-public-spaces-incubator-and-open-their-streaming-technology-to-more-innov>
+- EPRS, Implementation of the 2018 Geo-blocking Regulation (Mai 2023): <https://www.europarl.europa.eu/RegData/etudes/IDAN/2023/740255/EPRS_IDA(2023)740255_EN.pdf>
+- Bluesky-Blog, Video 11.09.2024: <https://bsky.social/about/blog/09-11-2024-video>
+- Bluesky-App, Video-Limits im Quellcode: <https://github.com/bluesky-social/social-app/blob/main/src/lib/constants.ts>
+
 ## Prompt
 
 Vollständiger Prompt für Recherche und Folienentwurf (Claude Opus 5.5, 23.11.2026), wörtlich:

@@ -25,6 +25,12 @@ qr: https://github.com/krahlos/did-slides/blob/main/data/fediverse/quellen.md
 - freeourfeeds.com
 - App Store, Google Play
 
+### Apps und Ausblick
+
+- flashes.blue, tangled.org, skylight.social, whtwnd.com, atstore.fyi
+- ARD/ZDF, ARTE, EBU
+- Europäisches Parlament (EPRS)
+
 Note:
 Alle Quellen mit Links: QR-Code oder data/fediverse/quellen.md im Repo.
 

@@ -1,0 +1,85 @@
+Tangled brand assets (Dolly logo), used to refer to Tangled per section 3.
+Source: https://tangled.org/tangled.org/core/raw/master/license-brand (retrieved 2026-11-23)
+Logo file: https://tangled.org/logos/dolly.svg (unmodified)
+
+Tangled Brand Assets License
+
+Copyright (c) 2025-2026 Tangled Labs Oy. All rights reserved.
+
+1. Scope
+
+This license applies to the files listed under "Exceptions" in the `license`
+file at the root of this repository, to every file in a directory that
+contains a `license` file referring to this document, and to every file whose
+header refers to this document (together, the "Brand Assets"). Files built
+or generated from the Brand Assets are Brand Assets too.
+
+The Brand Assets include the Tangled name, the Dolly logo and mascot, the
+Tangled wordmark and logotype, the designs and copy of tangled.org's landing
+and marketing pages, Open Graph artwork, legal pages, and blog content.
+
+The Brand Assets do not include third-party material inside those paths,
+such as profile photos in `blog/public/avatars/` and posts written by guest
+authors. That material remains the property of its owners.
+
+The Brand Assets are not licensed under the MIT License that covers the rest
+of this repository.
+
+2. Limited permission
+
+Tangled Labs Oy grants you a personal, non-exclusive, non-transferable,
+revocable permission to copy and build the Brand Assets, without
+modification, solely to develop, test, and contribute to this repository.
+
+3. Using the logo to refer to Tangled
+
+Anyone may use the Dolly logo and the Tangled logotype to refer to Tangled,
+for example:
+
+  - in blog posts, articles, videos, talks, and documentation about Tangled;
+  - as an icon for Tangled in a list of services, integrations, or social
+    links;
+  - on a link or button that leads to Tangled, such as "View on Tangled" or
+    "Sign in with Tangled".
+
+You may resize the logos and show them in a single solid colour. You may
+not otherwise change them: no redrawing, distorting, animating, or
+combining them with other marks. You may not use them as the name or logo
+of your own product, project, or service, or in a way that suggests Tangled
+Labs Oy sponsors or endorses you when it does not.
+
+4. Restrictions
+
+Except as permitted in sections 2 and 3, you may not, without prior written
+permission from Tangled Labs Oy:
+
+  a. reproduce, modify, or create derivative works of the Brand Assets;
+  b. distribute, publish, or publicly display the Brand Assets, including as
+     part of a deployed website, application, or service;
+  c. use the Brand Assets, or anything confusingly similar to them, to
+     identify, advertise, or imply endorsement of any product, service, or
+     organisation other than Tangled.
+
+If you run your own instance of this software, you must replace the Brand
+Assets with your own name, logos, designs, and content.
+
+5. Trademarks
+
+"Tangled", the Dolly logo, and the Tangled logotype are trademarks of
+Tangled Labs Oy. Neither this license nor the MIT License grants any right
+to use them, except as permitted in section 3 and to accurately state that
+software is based on Tangled.
+
+6. Termination
+
+The permissions in sections 2 and 3 end automatically for anyone who
+breaches this license.
+
+7. Disclaimer
+
+THE BRAND ASSETS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO
+EVENT SHALL TANGLED LABS OY BE LIABLE FOR ANY CLAIM ARISING FROM THEIR USE.
+
+8. Contact
+
+For permission requests, contact team@tangled.org.

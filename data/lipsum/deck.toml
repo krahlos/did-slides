@@ -2,6 +2,7 @@ title = "Lorem ipsum dolor"
 subtitle = "Musterdeck mit allen Folientypen"
 event = "DI.DAY · Datum · Ort"
 duration = 10
+listed = false
 link = "https://github.com/krahlos/did-slides"
 notes = """
 Musterfolie **title**. `duration = 10` in `deck.toml` setzt die Sollzeit des Timers in der Referentenansicht (Taste S). Notizen erscheinen mit Taste N.

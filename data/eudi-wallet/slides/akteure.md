@@ -27,6 +27,6 @@ Aus SPRIND ausgegliedert
 Note:
 Partner laut Projektseite: BSI, Bundesdruckerei, Fraunhofer AISEC, PwC, Agentur Meiré und Meiré. Common Codes im Mai 2026 als Orchestrator gegründet. Aufsicht laut Digitale Identitätengesetz.
 
-Logos: erscheinen über der Karte, sobald `img/logos/bmds.svg`, `sprind.svg`, `common-codes.svg` bzw. `bundesnetzagentur.svg` liegt. Fehlende Logos meldet der Build bei Karten nicht.
+Logos: erscheinen über der Karte, sobald `img/logos/bmds.svg` bzw. `common-codes.svg` liegt (SPRIND: freigegeben 24.11.2026). Bundesnetzagentur hat das Logo abgelehnt (24.11.2026), nur im Text nennen. Fehlende Logos meldet der Build bei Karten nicht.
 
-PRÜFEN: Logo-Rechte (Anfragen siehe .cache/logo-rechte/tracking.csv).
+PRÜFEN: Logo-Rechte BMDS und Common Codes (Anfragen siehe .cache/logo-rechte/tracking.csv).

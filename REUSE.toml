@@ -58,6 +58,12 @@ SPDX-License-Identifier = "OFL-1.1"
 # SPDX-FileCopyrightText = "European Union"
 # SPDX-License-Identifier = "LicenseRef-EU-Emblem"
 
+# Permission by email from SPRIND GmbH, 24 Nov 2026 (see license file).
+[[annotations]]
+path = "data/eudi-wallet/img/logos/sprind.svg"
+SPDX-FileCopyrightText = "SPRIND GmbH"
+SPDX-License-Identifier = "LicenseRef-SPRIND-Logo"
+
 [[annotations]]
 path = "data/linux/img/tux.png"
 SPDX-FileCopyrightText = [

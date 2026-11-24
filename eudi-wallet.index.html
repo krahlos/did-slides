@@ -16,10 +16,492 @@
 <div class="deck">
 <section class="slide layout-title">
 <div class="content"><h1>Die EUDI-Wallet und d-you</h1>
-<h2>Untertitel – Platzhalter</h2>
+<h2>Was die digitale Brieftasche ab Januar kann – und was nicht</h2>
 <p>DI.DAY · 6. Dezember 2026 · Ludwigsburg</p>
 </div>
+<aside class="notes"><p>Entwurf nach Gliederung „Spannungsbogen“. Stand der Fakten: Recherche vom 3.11.2026 –
+alle Stellen mit PRÜFEN kurz vor dem Vortrag nachsehen.</p>
+</aside></section>
+
+<section class="slide layout-statement">
+<div class="content"><h2>Ausweisfoto hochgeladen?</h2>
+<p>Für den Handyvertrag, die Mietwohnung, das Carsharing …</p>
+</div>
+<footer><span></span><span></span><span>2 / 37</span></footer><aside class="notes"><p>Handzeichen: Wer hat schon mal ein Foto vom Personalausweis hochgeladen? Wer war schon mal im Video-Ident?</p>
+<p>Überleitung: Am 2. Januar 2027 – in knapp vier Wochen – soll das anders gehen. Ob es besser wird, klären wir heute.</p>
+<p>PRÜFEN: Starttermin 2.1.2027 kurz vor dem Vortrag bestätigen (eudi-wallet.gov.de).</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">01</div><h2>Das Problem und die europäische Idee</h2>
+</div>
+<aside class="notes"><p>Erst das Problem, dann die Lösung – so wird klar, wozu die Regeln da sind. Ca. 4–5 Minuten für diesen Teil.</p>
+</aside></section>
+
+<section class="slide layout-default" data-steps>
+<div class="content"><h2>Vier Probleme, die die EU lösen will</h2>
+<ol>
+<li><strong>Ausweise enden an der Grenze</strong>: nationale eIDs funktionieren kaum EU-weit</li>
+<li><strong>Nur Identität, keine Nachweise</strong>: Führerschein, Zeugnis, Alter – meist Papier, Scan oder Video-Ident</li>
+<li><strong>Zu viele Daten</strong>: Wer sein Alter zeigt, zeigt auch Name, Adresse, Ausweisnummer</li>
+<li><strong>Big Tech am Login</strong>: Anmelden mit Google, Apple oder Facebook</li>
+</ol>
+</div>
+<footer><span>1 · Problem &amp; Idee</span><span>VO (EU) 2024/1183, ErwG 7, Art. 5f</span><span>4 / 37</span></footer><aside class="notes"><ol>
+<li>eIDAS 2014 verpflichtete die Staaten nicht, eine eID anzubieten; Anerkennung nur freiwillig, Flickenteppich, manche Staaten ohne eID (Erwägungsgrund 7).</li>
+<li>Der Online-Ausweis bestätigt, wer man ist – nicht, was man darf.</li>
+<li>Ziel: nur einzelne Angaben freigeben, im Idealfall nur „über 18: ja“.</li>
+<li>Deshalb müssen auch sehr große Online-Plattformen die Wallet akzeptieren (Art. 5f).</li>
+</ol>
+<p>Einordnung: Das ist der Anspruch der Verordnung. Ob die Wallet das einlöst, ist genau der Streitpunkt am Ende.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>eIDAS 2.0: jeder Staat bietet eine Wallet an</h2>
+<ul>
+<li><strong>Pflicht</strong>: mindestens eine Wallet je Mitgliedstaat, EU-weit anerkannt</li>
+<li><strong>Freiwillig und kostenlos</strong>: wer keine nutzt, darf nicht benachteiligt werden</li>
+<li><strong>Open Source</strong>: Quellcode der App unter offener Lizenz</li>
+<li><strong>Datensparsam</strong>: einzelne Angaben freigeben, Pseudonyme, kein Tracking</li>
+<li><strong>Transparent</strong>: Protokoll aller Abfragen in der App</li>
+</ul>
+<div class="logos"><span class="logo-placeholder">EU</span></div></div>
+<footer><span>1 · Problem &amp; Idee</span><span>VO (EU) 2024/1183, Art. 5a</span><span>5 / 37</span></footer><aside class="notes"><p>Rechtsgrundlage: Verordnung (EU) 2024/1183, oft „eIDAS 2.0“. Fundstellen: Pflicht Art. 5a Abs. 1; Anbieter Abs. 2; Open Source Abs. 3; kostenlos Abs. 13; Freiwilligkeit Abs. 15; Datensparsamkeit Abs. 4 und 16; Dashboard Abs. 4 lit. d.</p>
+<p>Dienste, die Daten abfragen wollen, müssen sich registrieren und angeben, welche Daten sie wozu verlangen (Art. 5b).</p>
+<p>Hinweis: Zero-Knowledge-Proofs nennt die Verordnung als zu integrierende Technik (ErwG 14), schreibt aber keine Technologie vor – darauf kommt die Kritik später zurück.</p>
+<p>Logo: EU-Emblem nur ohne Eindruck einer Billigung durch die EU verwenden.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Was in der Wallet liegen soll</h2>
+<ul>
+<li><strong>Identität (PID)</strong>: abgeleitet aus dem staatlichen Ausweis</li>
+<li><strong>Nachweise (EAA)</strong>: z. B. Führerschein, Zeugnisse, Berechtigungen</li>
+<li><strong>Unterschrift</strong>: qualifizierte elektronische Signatur, für Private kostenlos</li>
+</ul>
+</div>
+<footer><span>1 · Problem &amp; Idee</span><span>VO (EU) 2024/1183, ErwG 7, 54, 55</span><span>6 / 37</span></footer><aside class="notes"><p>PID = Personenidentifizierungsdaten, EAA = elektronische Attributsbescheinigungen. Die kostenlose qualifizierte Signatur gilt für nicht-berufliche Zwecke (Art. 5a Abs. 5 lit. g).</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Wer die Wallet akzeptieren muss</h2>
+<ul>
+<li><strong>Behörden</strong>, die online identifizieren</li>
+<li><strong>Private mit starker Authentifizierung</strong>: Banken, Energie, Telekommunikation, Verkehr – ab Ende 2027</li>
+<li><strong>Sehr große Online-Plattformen</strong></li>
+</ul>
+</div>
+<footer><span>1 · Problem &amp; Idee</span><span>VO (EU) 2024/1183, Art. 5f</span><span>7 / 37</span></footer><aside class="notes"><p>Frist für Private: spätestens 36 Monate nach Inkrafttreten der Durchführungsrechtsakte, laut Gliederung ab 24.12.2027.</p>
+<p>Das ist der Hebel, der die Wallet im Alltag nützlich machen dürfte – darauf kommen wir bei „Was bringt mir das?“ zurück.</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">02</div><h2>Der lange Weg</h2>
+</div>
+<aside class="notes"><p>Zeitleiste kurz halten, ca. 4 Minuten.</p>
+</aside></section>
+
+<section class="slide layout-statement">
+<div class="content"><h2>5½ Jahre</h2>
+<p>vom Vorschlag der EU-Kommission (Juni 2021) bis zum geplanten Start in Deutschland (2. Januar 2027)</p>
+</div>
+<footer><span>2 · Der lange Weg</span><span>EP Legislative Train; eudi-wallet.gov.de</span><span>9 / 37</span></footer></section>
+
+<section class="slide layout-timeline" data-steps>
+<div class="content"><h2>Europa</h2>
+<ul>
+<li><strong>06/2021</strong> Kommission legt den Vorschlag vor</li>
+<li><strong>06/2023</strong> Einigung im Trilog</li>
+<li><strong>05/2024</strong> Verordnung tritt in Kraft</li>
+<li><strong>11/2024</strong> Technische Durchführungsrechtsakte</li>
+<li><strong>12/2026</strong> Frist für die Mitgliedstaaten</li>
+</ul>
+</div>
+<footer><span>2 · Der lange Weg</span><span>EP Legislative Train; EUR-Lex; EU-Kommission</span><span>10 / 37</span></footer><aside class="notes"><p>Daten: Vorschlag COM(2021) 281 am 03.06.2021; vorläufige Einigung 29.06.2023, Trilog abgeschlossen 08.11.2023; Parlament 29.02.2024 (335 : 190 : 31), Rat 26.03.2024; Inkrafttreten 20.05.2024; erste Durchführungsverordnungen beschlossen 28.11.2024, in Kraft 20 Tage nach Amtsblatt (04.12.2024).</p>
+<p>Parallel: vier Großpiloten ab 01.04.2023 mit über 350 Organisationen.</p>
+<p>Frist: 24 Monate nach Inkrafttreten der ersten Durchführungsrechtsakte (Art. 5a Abs. 1), rechnerisch Ende Dezember 2026.</p>
+</aside></section>
+
+<section class="slide layout-timeline" data-steps>
+<div class="content"><h2>Deutschland</h2>
+<ul>
+<li><strong>07/2023</strong> Offener Konsultationsprozess startet</li>
+<li><strong>04/2024</strong> SPRIND-Wettbewerb für Prototypen</li>
+<li><strong>05/2025</strong> Digitalministerium übernimmt</li>
+<li><strong>09/2026</strong> Name „d-you“, rund 40 Partner</li>
+<li><strong>10/2026</strong> Bundestag beschließt das DIdG</li>
+<li><strong>01/2027</strong> Geplanter Start</li>
+</ul>
+</div>
+<footer><span>2 · Der lange Weg</span><span>Drs. 21/7319; SPRIND; Bundestag; eudi-wallet.gov.de</span><span>11 / 37</span></footer><aside class="notes"><p>Kick-off 31.07.2023 (BMI, Dokumente auf openCoDE); Funke-Wettbewerb ab 11.04.2024; Okt. 2024 Architekturentscheidung „signierte Daten“; BMDS seit 06.05.2025 federführend; Name am 09.09.2026; Digitale Identitätengesetz am 15.10.2026; Start 02.01.2027.</p>
+<p>Pointe: Die EU-Frist endet rechnerisch Ende Dezember 2026, der Start ist für den 2. Januar geplant. Die Bundesregierung nennt den Start fristgerecht – das als ihre Aussage kennzeichnen.</p>
+<p>PRÜFEN: Stand im Bundesrat zum DIdG.</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">03</div><h2>Und was bringt mir das?</h2>
+</div>
+<aside class="notes"><p>Herzstück des Vortrags, ca. 7 Minuten.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>d-you: die Wallet des Bundes</h2>
+<ul>
+<li><strong>Ab 2. Januar 2027</strong> für Android und iOS geplant</li>
+<li><strong>Freiwillig und kostenlos</strong>, ersetzt keinen Ausweis</li>
+<li><strong>Anbieter</strong>: Common Codes GmbH im Auftrag des Digitalministeriums</li>
+<li><strong>Private Wallets</strong> sollen später ebenfalls zugelassen werden</li>
+</ul>
+<div class="logos"><span class="logo-placeholder">d-you</span></div></div>
+<footer><span>3 · Was bringt's?</span><span>eudi-wallet.gov.de; Bundestag</span><span>13 / 37</span></footer><aside class="notes"><p>Name und Logo am 09.09.2026 von Digitalminister Karsten Wildberger vorgestellt. „d“ steht laut BMDS u. a. für digital und Deutschland, „you“ für Nutzerorientierung.</p>
+<p>PRÜFEN: Nutzungshinweise zum d-you-Logo lesen, bevor es eingesetzt wird.</p>
+</aside></section>
+
+<section class="slide layout-default" data-steps>
+<div class="content"><h2>So wird d-you eingerichtet</h2>
+<ol>
+<li>App installieren, Bildschirmsperre aktivieren</li>
+<li>Personalausweis per NFC ans Handy halten, eID-PIN eingeben</li>
+<li>Eigene Wallet-PIN festlegen</li>
+<li>Die Identitätsdaten landen in der Wallet</li>
+</ol>
+</div>
+<footer><span>3 · Was bringt's?</span><span>Architekturdokumentation (openCoDE)</span><span>14 / 37</span></footer><aside class="notes"><p>Auch mit elektronischem Aufenthaltstitel (Nicht-EU-Bürger). Technisch über das AusweisApp-SDK. Die Wallet-PIN schützt Schlüssel in einem gesicherten Server-Modul des Anbieters („Remote WSCA“). Ausgabe in zwei Formaten (SD-JWT VC und ISO mdoc).</p>
+<p>Wichtig für das Publikum: Man braucht die eID-PIN des Personalausweises – wer sie nicht kennt, muss sie vorher besorgen.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Was zum Start gehen soll</h2>
+<ul>
+<li><strong>Alter nachweisen, Verträge abschließen, Konto eröffnen</strong></li>
+<li>Rund <strong>40 Partner</strong>, u. a. Sparkassen, Volksbanken, Vodafone, Deutsche Post, Rossmann, E.ON, Rentenversicherung, Arbeitsagentur</li>
+<li><strong>Krankenkassen</strong>: Anmeldung bei der Gesundheits-ID (ePA, E-Rezept)</li>
+<li><strong>A-Trust</strong>: qualifizierte Signatur, für begrenzte Zeit kostenlos</li>
+</ul>
+</div>
+<footer><span>3 · Was bringt's?</span><span>BMDS-Pressemitteilung 53/2026; Börsen-Zeitung, 06.11.2026</span><span>15 / 37</span></footer><aside class="notes"><p>Sparkassen: d-you in zehn Identifizierungsprozessen, z. B. bei Konto- und Depoteröffnung.</p>
+<p>Offen sagen: Bei vielen Partnern ist noch nicht öffentlich, was genau sie anbieten.</p>
+<p>PRÜFEN: Partnerliste und Startumfang kurz vor dem Vortrag. netzpolitik.org berichtete im September, zunächst sei nur der Ausweis nutzbar.</p>
+</aside></section>
+
+<section class="slide layout-timeline" data-steps>
+<div class="content"><h2>Was danach kommen soll</h2>
+<ul>
+<li><strong>Q1/2027</strong> Studierendenausweis, KfW</li>
+<li><strong>Q2/2027</strong> erste Nachweise aus Behördenregistern</li>
+<li><strong>Sommer 2027</strong> Sparkassen-Filialen</li>
+<li><strong>24.12.2027</strong> Annahmepflicht für Banken, Energie, Telekom, große Plattformen</li>
+<li><strong>12/2028</strong> Versicherungsnachweis statt Gesundheitskarte</li>
+</ul>
+</div>
+<footer><span>3 · Was bringt's?</span><span>HS Zittau/Görlitz; Börsen-Zeitung; Drs. 21/7319</span><span>16 / 37</span></footer><aside class="notes"><p>Q1: digitaler Studierendenausweis (HS Zittau/Görlitz), digitale Immatrikulation zum Sommersemester; KfW. Q2: zentraler Ausstellungsdienst für Behördennachweise; Volks- und Raiffeisenbanken. 1.12.2028: Versicherungsnachweis – bisher nur Referentenentwurf.</p>
+<p>Führerschein: offen. Die Regierung nannte ihn im Juli 2026 für den Start, aktuelle Berichte sprechen von „später, ohne Termin“. PRÜFEN.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Noch ohne Termin</h2>
+<ul>
+<li><strong>Pseudonym einloggen</strong></li>
+<li><strong>Alter nachweisen, ohne Identität</strong> (Zero-Knowledge-Proof)</li>
+<li><strong>Unterschreiben direkt in der App</strong></li>
+<li><strong>Bezahlen</strong> und Wallet-zu-Wallet</li>
+<li><strong>Im EU-Ausland</strong>, sobald andere Staaten ihre Wallets ausrollen</li>
+</ul>
+</div>
+<footer><span>3 · Was bringt's?</span><span>Drs. 21/7319</span><span>17 / 37</span></footer><aside class="notes"><p>Laut Bundesregierung fehlen für Pseudonyme, Signatur, Zahlungen und Wallet-zu-Wallet noch EU-Spezifikationen; ZKP-Verfahren sind auf EU-Ebene noch nicht festgelegt. Der Bundestag fordert, Pseudonyme schnellstmöglich nachzuliefern.</p>
+</aside></section>
+
+<section class="slide layout-statement">
+<div class="content"><h2>Erst Komfort</h2>
+<p>Zum Start ersetzt d-you vor allem Foto-Upload und Video-Ident. Den großen Schub dürfte erst die Annahmepflicht ab Ende 2027 bringen.</p>
+</div>
+<footer><span>3 · Was bringt's?</span><span>Einordnung nach BMDS und Drs. 21/7319</span><span>18 / 37</span></footer><aside class="notes"><p>Die ehrliche Antwort auf „Was bringt mir das?“: Den Ausweis liest man einmal ein, statt ihn jedes Mal ans Handy zu halten. Der große Nutzen hängt davon ab, wie viele Nachweise und Akzeptanzstellen 2027 dazukommen.</p>
+<p>Als Einordnung kennzeichnen, nicht als Tatsache.</p>
+</aside></section>
+
+<section class="slide layout-table">
+<div class="content"><h2>Welches Handy man braucht</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Android</th>
+<th>iOS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>System</td>
+<td>Android 14 bis 17</td>
+<td>iOS 18 oder 26</td>
+</tr>
+<tr>
+<td>Schlüsselspeicher</td>
+<td>TEE oder StrongBox</td>
+<td>Secure Enclave</td>
+</tr>
+<tr>
+<td>Außerdem</td>
+<td>NFC, Internet, Bildschirmsperre</td>
+<td>Internet, Bildschirmsperre</td>
+</tr>
+</tbody></table>
+</div>
+<footer><span>3 · Was bringt's?</span><span>Architekturdokumentation; Drs. 21/7319</span><span>19 / 37</span></footer><aside class="notes"><p>Stand Juli 2026 laut Architekturdokumentation; Mindest-Patchstände dort noch offen.</p>
+<p>Abweichung: Die Bundesregierung nennt in Drs. 21/7319 „Android ab Version 13“ und schätzt, dass mehr als 80 Prozent der Geräte erreicht werden. PRÜFEN.</p>
+<p>Laut derselben Antwort kein Google- oder Apple-Konto nötig, keine Play Integrity API.</p>
+<p>Zum Kürzen: diese Folie weglassen.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Was das Projekt zum Datenschutz verspricht</h2>
+<ul>
+<li>Nachweise <strong>verschlüsselt auf dem Gerät</strong>, keine zentrale Datensammlung</li>
+<li>Wallet prüft jede Anfrage gegen den <strong>registrierten Zweck</strong></li>
+<li><strong>Einmal-Nachweise</strong>, damit Anfragen nicht verknüpfbar sind</li>
+<li><strong>Protokoll</strong> aller Anfragen, Sperre bei Geräteverlust</li>
+<li><strong>Offener Quellcode</strong>, Bug-Bounty bis 40.000 US-Dollar</li>
+</ul>
+</div>
+<footer><span>3 · Was bringt's?</span><span>eudi-wallet.gov.de; GitHub german-national-wallet</span><span>20 / 37</span></footer><aside class="notes"><p>Bewusst als Versprechen des Projekts formuliert – die Kritik dazu kommt im Teil „Der Streit“.</p>
+<p>Quellcode der Apps und des Backends auf GitHub (Organisation „german-national-wallet“, Lizenz EUPL-1.2 bzw. Apache-2.0), Architektur auf openCoDE, öffentliches Bug-Bounty über HackerOne seit Mitte September 2026.</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">04</div><h2>Wer baut das?</h2>
+</div>
+<aside class="notes"><p>Ca. 3 Minuten. Ungewöhnliche Konstellation.</p>
+</aside></section>
+
+<section class="slide layout-cards">
+<div class="content"><h2>Wer was macht</h2>
+<div class="cols"><div class="col"><span class="card-logo"></span><h3>BMDS</h3>
+<p><strong>Auftrag</strong>, politische Verantwortung</p>
+<p>Digitalministerium, bis Mai 2025 beim BMI</p>
+</div><div class="col"><img class="card-logo" src="data/eudi-wallet/img/logos/sprind.svg" alt=""><h3>SPRIND</h3>
+<p><strong>Projektleitung</strong> und Entwicklung</p>
+</div><div class="col"><span class="card-logo"></span><h3>Common Codes</h3>
+<p><strong>Anbieter</strong> der Wallet</p>
+<p>Aus SPRIND ausgegliedert</p>
+</div><div class="col"><span class="card-logo"></span><h3>Bundesnetzagentur</h3>
+<p><strong>Aufsicht</strong></p>
+</div></div></div>
+<footer><span>4 · Wer baut das?</span><span>eudi-wallet.gov.de; Drs. 21/7319; Bundestag</span><span>22 / 37</span></footer><aside class="notes"><p>Partner laut Projektseite: BSI, Bundesdruckerei, Fraunhofer AISEC, PwC, Agentur Meiré und Meiré. Common Codes im Mai 2026 als Orchestrator gegründet. Aufsicht laut Digitale Identitätengesetz.</p>
+<p>Logos: erscheinen über der Karte, sobald <code>img/logos/bmds.svg</code> bzw. <code>common-codes.svg</code> liegt (SPRIND: freigegeben 24.11.2026). Bundesnetzagentur hat das Logo abgelehnt (24.11.2026), nur im Text nennen. Fehlende Logos meldet der Build bei Karten nicht.</p>
+<p>PRÜFEN: Logo-Rechte BMDS und Common Codes (Anfragen siehe .cache/logo-rechte/tracking.csv).</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>SPRIND: eine Innovationsagentur baut Infrastruktur</h2>
+<ul>
+<li><strong>Bundesagentur für Sprunginnovationen</strong>, gegründet 2019, Sitz Leipzig</li>
+<li>Eigentlich zuständig für <strong>radikal neue Technologien</strong></li>
+<li>Für die Wallet: <strong>Wettbewerb statt Ausschreibung</strong>, 15 Monate, drei Stufen</li>
+<li>Für den Dauerbetrieb: Ausgründung <strong>Common Codes GmbH</strong></li>
+</ul>
+<div class="logos"><img src="data/eudi-wallet/img/logos/sprind.svg" alt="SPRIND"></div></div>
+<footer><span>4 · Wer baut das?</span><span>SPRIND; SPRIND-Freiheitsgesetz</span><span>23 / 37</span></footer><aside class="notes"><p>Funke-Wettbewerb „EUDI Wallet Prototypes“ ab 11.04.2024: bis 300.000 € je Team in Stufe 1 und 2, bis 450.000 € je Finalist in Stufe 3; Abschlusskonferenz 14.10.2025. Seit dem SPRIND-Freiheitsgesetz (22.12.2023) gesetzlich verankert, mit flexibleren Haushaltsregeln.</p>
+<p>Sachlich einordnen: Dass eine Innovationsagentur dauerhaft zu betreibende Infrastruktur entwickelt, ist ungewöhnlich. Die Übergabe an Common Codes ist die Antwort des Projekts auf die Betriebsfrage.</p>
+</aside></section>
+
+<section class="slide layout-statement">
+<div class="content"><h2>214 Mio. €</h2>
+<p>Kosten des Bundes 2023 bis 2028, netto – ohne Kosten für Aussteller und Akzeptanzstellen</p>
+</div>
+<footer><span>4 · Wer baut das?</span><span>Drs. 21/7319</span><span>24 / 37</span></footer><aside class="notes"><p>79,3 Mio. € für 2023–2026 und 135,0 Mio. € für 2027–2028, jeweils netto, laut Antwort der Bundesregierung (Drs. 21/7319).</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">05</div><h2>Der Streit</h2>
+</div>
+<aside class="notes"><p>Kritik und Gegenposition immer als Paar. Ca. 5–7 Minuten. Bericht, Kommentar und Kolumne auseinanderhalten.</p>
+</aside></section>
+
+<section class="slide layout-procon" data-steps>
+<div class="content"><h2>Signierte Daten</h2>
+<div class="cols"><div class="col"><h3>Kritik</h3>
+<ul>
+<li>Signaturen machen Daten dauerhaft fälschungssicher</li>
+<li>und damit wertvoll für Datenhandel</li>
+</ul>
+</div><div class="col"><h3>Regierung / Projekt</h3>
+<ul>
+<li>Ein „authentifizierter Kanal“ würde den Aussteller bei jeder Nutzung einbinden</li>
+<li>Signierte Daten schützen besser vor Beobachtung; BSI hat zugestimmt</li>
+</ul>
+</div></div></div>
+<footer><span>5 · Der Streit</span><span>netzpolitik.org; vzbv; Drs. 21/7319</span><span>26 / 37</span></footer><aside class="notes"><p>Kritik laut netzpolitik.org von BSI, BfDI und Forschenden, dazu ein Gutachten für den vzbv. Gegenposition aus Drs. 21/7319; Architekturentscheidung des BMI im Oktober 2024 nach Optionsanalyse mit SPRIND, BSI und BfDI.</p>
+</aside></section>
+
+<section class="slide layout-procon" data-steps>
+<div class="content"><h2>Pseudonyme und Zero-Knowledge-Proofs</h2>
+<div class="cols"><div class="col"><h3>Kritik</h3>
+<ul>
+<li>Zum Start fehlen Pseudonyme und anonyme Altersnachweise</li>
+<li>Damit fehlt der Kern der Datensparsamkeit</li>
+</ul>
+</div><div class="col"><h3>Regierung / Projekt</h3>
+<ul>
+<li>EU-Spezifikationen fehlen noch</li>
+<li>Nachlieferung Schritt für Schritt; Bundestag fordert Priorität</li>
+</ul>
+</div></div></div>
+<footer><span>5 · Der Streit</span><span>Bundestag; vzbv; Drs. 21/7319</span><span>27 / 37</span></footer><aside class="notes"><p>Kritik von Grünen, Linken, vzbv und BfDI. Der BfDI-Vertreter wies in der Anhörung am 06.10.2026 darauf hin, dass die erste Version nicht alle eIDAS-Funktionen erfüllt. Der Bundestag hat per Entschließung gefordert, die Pseudonymfunktion schnellstmöglich nachzuliefern.</p>
+</aside></section>
+
+<section class="slide layout-procon" data-steps>
+<div class="content"><h2>Sicherheit und Zeitplan</h2>
+<div class="cols"><div class="col"><h3>Kritik</h3>
+<ul>
+<li>Sicherheitsvorgaben des BSI erst Ende 2026</li>
+<li>Viele Smartphones ohne aktuelle Updates</li>
+</ul>
+</div><div class="col"><h3>Regierung / Projekt</h3>
+<ul>
+<li>Pentests, Zertifizierung, Bug-Bounty, offener Quellcode</li>
+<li>Start „unter Berücksichtigung eventueller Restrisiken“</li>
+</ul>
+</div></div></div>
+<footer><span>5 · Der Streit</span><span>Tagesspiegel Background; netzpolitik.org; Bundestag</span><span>28 / 37</span></footer><aside class="notes"><p>BSI-Richtlinie TR-03189 erst Ende 2026; Sicherheitsberatung spät ausgeschrieben (Bianca Kastl via Tagesspiegel Background und netzpolitik.org); Smartphones ohne Updates (Jiska Classen in der Anhörung). Zitat der Regierung aus Drs. 21/7319.</p>
+<p>Tagesspiegel Background ist hinter Bezahlschranke – nur der Anriss wurde gelesen.</p>
+</aside></section>
+
+<section class="slide layout-procon" data-steps>
+<div class="content"><h2>Abhängigkeit von Apple und Google</h2>
+<div class="cols"><div class="col"><h3>Kritik</h3>
+<ul>
+<li>Nur über die App-Stores von Apple und Google</li>
+<li>Nur für Android und iOS</li>
+</ul>
+</div><div class="col"><h3>Regierung / Projekt</h3>
+<ul>
+<li>Kein Google- oder Apple-Konto nötig, keine Play Integrity</li>
+<li>Alternative App-Stores „angestrebt“</li>
+</ul>
+</div></div></div>
+<footer><span>5 · Der Streit</span><span>heise online; Drs. 21/7319</span><span>29 / 37</span></footer><aside class="notes"><p>heise lobte im Kommentar vom 17.10.2026 den Verzicht auf Play Integrity, bemängelte aber eine nicht offengelegte Schutzkomponente. Kritik auch im Linke-Antrag und in Fachblogs.</p>
+<p>Brücke zum Schluss: Unabhängigkeit entscheidet sich auch beim Betriebssystem.</p>
+</aside></section>
+
+<section class="slide layout-procon" data-steps>
+<div class="content"><h2>Wer darf was abfragen?</h2>
+<div class="cols"><div class="col"><h3>Kritik</h3>
+<ul>
+<li>Niemand prüft, ob die abgefragten Daten nötig sind</li>
+<li>Gefahr eines „Cookie-Banner 2.0“</li>
+</ul>
+</div><div class="col"><h3>Regierung / Projekt</h3>
+<ul>
+<li>Registrierung prüft Identität und Angaben des Dienstes</li>
+<li>Eine Angemessenheitsprüfung sieht das EU-Recht nicht vor</li>
+</ul>
+</div></div></div>
+<footer><span>5 · Der Streit</span><span>vzbv; Drs. 21/7319</span><span>30 / 37</span></footer><aside class="notes"><p>Kritik von Bianca Kastl und vzbv. Gegenposition aus Drs. 21/7319.</p>
+</aside></section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Die Position der Grünen im Bundestag</h2>
+<ul>
+<li><strong>Für</strong> eine EUDI-Wallet, aber <strong>gegen</strong> das DIdG in dieser Form</li>
+<li><strong>Pseudonyme</strong> als Voreinstellung, Altersnachweis ohne Identität</li>
+<li>Nutzbar auch <strong>ohne außereuropäische Anbieter</strong>, etwa auf alternativen Betriebssystemen</li>
+<li><strong>Start erst</strong> mit vollem eIDAS-Umfang und geprüfter Sicherheit</li>
+</ul>
+</div>
+<footer><span>5 · Der Streit</span><span>Bundestag; Drs. 21/8624</span><span>31 / 37</span></footer><aside class="notes"><p>Abstimmung am 15.10.2026: Gesetz mit Koalitionsmehrheit angenommen gegen AfD, Grüne und Linke; die AfD lehnt die EU-Wallet anders als die Grünen grundsätzlich ab. Der Entschließungsantrag der Grünen (Drs. 21/8624) wurde abgelehnt.</p>
+<p>Einordnung: Bei der Pseudonymfunktion decken sich Grüne und Koalition, der Unterschied liegt im Zeitpunkt – ob ein Start mit Teilfunktionen vertretbar ist.</p>
+<p>Neutral vortragen: als Position der Fraktion, nicht als Bewertung des Vortrags.</p>
+</aside></section>
+
+<section class="slide layout-table">
+<div class="content"><h2>Wie berichtet wird</h2>
+<table>
+<thead>
+<tr>
+<th>Medien</th>
+<th>Tenor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fachpresse (netzpolitik.org, heise, Tagesspiegel Background)</td>
+<td>überwiegend kritisch: Sicherheit, Datenschutz, Zeitplan</td>
+</tr>
+<tr>
+<td>Allgemein und Wirtschaft (ZDFheute, Behörden Spiegel, Lebensmittel Zeitung)</td>
+<td>eher Start, Nutzen, Partner</td>
+</tr>
+</tbody></table>
+</div>
+<footer><span>5 · Der Streit</span><span>netzpolitik.org; heise; ZDFheute; Behörden Spiegel</span><span>32 / 37</span></footer><aside class="notes"><p>netzpolitik.org versteht sich als Medium für digitale Grundrechte; Tagesspiegel Background ist ein Fachdienst hinter Bezahlschranke – beides offen benennen. Kommentarspalten sind nicht repräsentativ.</p>
+</aside></section>
+
+<section class="slide layout-section">
+<div class="content"><div class="no">06</div><h2>Zurück zum Ausweisfoto</h2>
+</div>
 </section>
+
+<section class="slide layout-default">
+<div class="content"><h2>Was am 2. Januar wirklich geht</h2>
+<ul>
+<li><strong>Ausweis einmal einlesen</strong> statt Foto-Upload und Video-Ident – bei den teilnehmenden Partnern</li>
+<li><strong>2027 beobachten</strong>: Führerschein, Pseudonyme, neue Nachweise</li>
+<li><strong>Ende 2027</strong>: Annahmepflicht für Banken, Energie, Telekom, Plattformen</li>
+<li>d-you läuft nur auf <strong>Android und iOS</strong></li>
+</ul>
+</div>
+<footer><span>6 · Fazit</span><span>eudi-wallet.gov.de; Drs. 21/7319</span><span>34 / 37</span></footer><aside class="notes"><p>Bogen zum Anfang: Das Ausweisfoto könnte für viele Fälle verschwinden – wenn die Partner mitziehen.</p>
+<p>Brücke zum DI.DAY: Wie unabhängig wir digital sind, entscheidet sich auch beim Betriebssystem. Gleich im Anschluss: Hilfe beim Umstieg auf Linux Mint.</p>
+</aside></section>
+
+<section class="slide layout-statement">
+<div class="content"><h2>Fragen?</h2>
+</div>
+<footer><span>6 · Fazit</span><span></span><span>35 / 37</span></footer></section>
+
+<section class="slide layout-sources has-qr">
+<div class="content"><h2>Quellen</h2>
+<div class="cols"><div class="col"><h3>Europäische Union</h3>
+<ul>
+<li>Verordnung (EU) 2024/1183 (eIDAS 2.0)</li>
+<li>Durchführungsverordnungen 2024/2979 u. a.</li>
+<li>EU-Parlament: Legislative Train</li>
+<li>EU-Kommission: Großpiloten, ARF</li>
+</ul>
+</div><div class="col"><h3>Deutschland</h3>
+<ul>
+<li>Bundesregierung, Drs. 21/7319</li>
+<li>Bundestag: DIdG, Anhörung</li>
+<li>Grüne, Drs. 21/8624</li>
+<li>eudi-wallet.gov.de, openCoDE, GitHub</li>
+<li>SPRIND, BMDS-Pressemitteilung 53/2026</li>
+</ul>
+</div><div class="col"><h3>Medien</h3>
+<ul>
+<li>netzpolitik.org</li>
+<li>heise online</li>
+<li>Tagesspiegel Background</li>
+<li>Börsen-Zeitung, ZDFheute</li>
+<li>Behörden Spiegel, vzbv</li>
+</ul>
+</div></div><p class="license">Folien: krahlos · <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a></p></div>
+<figure class="qr"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="M2,2l1,0 0,1 -1,0 0,-1z M3,2l1,0 0,1 -1,0 0,-1z M4,2l1,0 0,1 -1,0 0,-1z M5,2l1,0 0,1 -1,0 0,-1z M6,2l1,0 0,1 -1,0 0,-1z M7,2l1,0 0,1 -1,0 0,-1z M8,2l1,0 0,1 -1,0 0,-1z M11,2l1,0 0,1 -1,0 0,-1z M13,2l1,0 0,1 -1,0 0,-1z M16,2l1,0 0,1 -1,0 0,-1z M17,2l1,0 0,1 -1,0 0,-1z M19,2l1,0 0,1 -1,0 0,-1z M20,2l1,0 0,1 -1,0 0,-1z M22,2l1,0 0,1 -1,0 0,-1z M25,2l1,0 0,1 -1,0 0,-1z M28,2l1,0 0,1 -1,0 0,-1z M30,2l1,0 0,1 -1,0 0,-1z M32,2l1,0 0,1 -1,0 0,-1z M33,2l1,0 0,1 -1,0 0,-1z M34,2l1,0 0,1 -1,0 0,-1z M35,2l1,0 0,1 -1,0 0,-1z M36,2l1,0 0,1 -1,0 0,-1z M37,2l1,0 0,1 -1,0 0,-1z M38,2l1,0 0,1 -1,0 0,-1z M2,3l1,0 0,1 -1,0 0,-1z M8,3l1,0 0,1 -1,0 0,-1z M15,3l1,0 0,1 -1,0 0,-1z M20,3l1,0 0,1 -1,0 0,-1z M21,3l1,0 0,1 -1,0 0,-1z M24,3l1,0 0,1 -1,0 0,-1z M27,3l1,0 0,1 -1,0 0,-1z M29,3l1,0 0,1 -1,0 0,-1z M30,3l1,0 0,1 -1,0 0,-1z M32,3l1,0 0,1 -1,0 0,-1z M38,3l1,0 0,1 -1,0 0,-1z M2,4l1,0 0,1 -1,0 0,-1z M4,4l1,0 0,1 -1,0 0,-1z M5,4l1,0 0,1 -1,0 0,-1z M6,4l1,0 0,1 -1,0 0,-1z M8,4l1,0 0,1 -1,0 0,-1z M10,4l1,0 0,1 -1,0 0,-1z M13,4l1,0 0,1 -1,0 0,-1z M14,4l1,0 0,1 -1,0 0,-1z M17,4l1,0 0,1 -1,0 0,-1z M21,4l1,0 0,1 -1,0 0,-1z M22,4l1,0 0,1 -1,0 0,-1z M23,4l1,0 0,1 -1,0 0,-1z M24,4l1,0 0,1 -1,0 0,-1z M28,4l1,0 0,1 -1,0 0,-1z M29,4l1,0 0,1 -1,0 0,-1z M30,4l1,0 0,1 -1,0 0,-1z M32,4l1,0 0,1 -1,0 0,-1z M34,4l1,0 0,1 -1,0 0,-1z M35,4l1,0 0,1 -1,0 0,-1z M36,4l1,0 0,1 -1,0 0,-1z M38,4l1,0 0,1 -1,0 0,-1z M2,5l1,0 0,1 -1,0 0,-1z M4,5l1,0 0,1 -1,0 0,-1z M5,5l1,0 0,1 -1,0 0,-1z M6,5l1,0 0,1 -1,0 0,-1z M8,5l1,0 0,1 -1,0 0,-1z M10,5l1,0 0,1 -1,0 0,-1z M11,5l1,0 0,1 -1,0 0,-1z M12,5l1,0 0,1 -1,0 0,-1z M13,5l1,0 0,1 -1,0 0,-1z M15,5l1,0 0,1 -1,0 0,-1z M19,5l1,0 0,1 -1,0 0,-1z M21,5l1,0 0,1 -1,0 0,-1z M24,5l1,0 0,1 -1,0 0,-1z M26,5l1,0 0,1 -1,0 0,-1z M27,5l1,0 0,1 -1,0 0,-1z M28,5l1,0 0,1 -1,0 0,-1z M32,5l1,0 0,1 -1,0 0,-1z M34,5l1,0 0,1 -1,0 0,-1z M35,5l1,0 0,1 -1,0 0,-1z M36,5l1,0 0,1 -1,0 0,-1z M38,5l1,0 0,1 -1,0 0,-1z M2,6l1,0 0,1 -1,0 0,-1z M4,6l1,0 0,1 -1,0 0,-1z M5,6l1,0 0,1 -1,0 0,-1z M6,6l1,0 0,1 -1,0 0,-1z M8,6l1,0 0,1 -1,0 0,-1z M10,6l1,0 0,1 -1,0 0,-1z M11,6l1,0 0,1 -1,0 0,-1z M12,6l1,0 0,1 -1,0 0,-1z M13,6l1,0 0,1 -1,0 0,-1z M15,6l1,0 0,1 -1,0 0,-1z M17,6l1,0 0,1 -1,0 0,-1z M20,6l1,0 0,1 -1,0 0,-1z M21,6l1,0 0,1 -1,0 0,-1z M22,6l1,0 0,1 -1,0 0,-1z M23,6l1,0 0,1 -1,0 0,-1z M24,6l1,0 0,1 -1,0 0,-1z M25,6l1,0 0,1 -1,0 0,-1z M30,6l1,0 0,1 -1,0 0,-1z M32,6l1,0 0,1 -1,0 0,-1z M34,6l1,0 0,1 -1,0 0,-1z M35,6l1,0 0,1 -1,0 0,-1z M36,6l1,0 0,1 -1,0 0,-1z M38,6l1,0 0,1 -1,0 0,-1z M2,7l1,0 0,1 -1,0 0,-1z M8,7l1,0 0,1 -1,0 0,-1z M10,7l1,0 0,1 -1,0 0,-1z M11,7l1,0 0,1 -1,0 0,-1z M12,7l1,0 0,1 -1,0 0,-1z M13,7l1,0 0,1 -1,0 0,-1z M16,7l1,0 0,1 -1,0 0,-1z M18,7l1,0 0,1 -1,0 0,-1z M20,7l1,0 0,1 -1,0 0,-1z M23,7l1,0 0,1 -1,0 0,-1z M24,7l1,0 0,1 -1,0 0,-1z M26,7l1,0 0,1 -1,0 0,-1z M27,7l1,0 0,1 -1,0 0,-1z M28,7l1,0 0,1 -1,0 0,-1z M29,7l1,0 0,1 -1,0 0,-1z M32,7l1,0 0,1 -1,0 0,-1z M38,7l1,0 0,1 -1,0 0,-1z M2,8l1,0 0,1 -1,0 0,-1z M3,8l1,0 0,1 -1,0 0,-1z M4,8l1,0 0,1 -1,0 0,-1z M5,8l1,0 0,1 -1,0 0,-1z M6,8l1,0 0,1 -1,0 0,-1z M7,8l1,0 0,1 -1,0 0,-1z M8,8l1,0 0,1 -1,0 0,-1z M10,8l1,0 0,1 -1,0 0,-1z M12,8l1,0 0,1 -1,0 0,-1z M14,8l1,0 0,1 -1,0 0,-1z M16,8l1,0 0,1 -1,0 0,-1z M18,8l1,0 0,1 -1,0 0,-1z M20,8l1,0 0,1 -1,0 0,-1z M22,8l1,0 0,1 -1,0 0,-1z M24,8l1,0 0,1 -1,0 0,-1z M26,8l1,0 0,1 -1,0 0,-1z M28,8l1,0 0,1 -1,0 0,-1z M30,8l1,0 0,1 -1,0 0,-1z M32,8l1,0 0,1 -1,0 0,-1z M33,8l1,0 0,1 -1,0 0,-1z M34,8l1,0 0,1 -1,0 0,-1z M35,8l1,0 0,1 -1,0 0,-1z M36,8l1,0 0,1 -1,0 0,-1z M37,8l1,0 0,1 -1,0 0,-1z M38,8l1,0 0,1 -1,0 0,-1z M10,9l1,0 0,1 -1,0 0,-1z M13,9l1,0 0,1 -1,0 0,-1z M16,9l1,0 0,1 -1,0 0,-1z M17,9l1,0 0,1 -1,0 0,-1z M18,9l1,0 0,1 -1,0 0,-1z M22,9l1,0 0,1 -1,0 0,-1z M23,9l1,0 0,1 -1,0 0,-1z M24,9l1,0 0,1 -1,0 0,-1z M28,9l1,0 0,1 -1,0 0,-1z M30,9l1,0 0,1 -1,0 0,-1z M2,10l1,0 0,1 -1,0 0,-1z M4,10l1,0 0,1 -1,0 0,-1z M5,10l1,0 0,1 -1,0 0,-1z M6,10l1,0 0,1 -1,0 0,-1z M7,10l1,0 0,1 -1,0 0,-1z M8,10l1,0 0,1 -1,0 0,-1z M11,10l1,0 0,1 -1,0 0,-1z M14,10l1,0 0,1 -1,0 0,-1z M15,10l1,0 0,1 -1,0 0,-1z M16,10l1,0 0,1 -1,0 0,-1z M17,10l1,0 0,1 -1,0 0,-1z M20,10l1,0 0,1 -1,0 0,-1z M21,10l1,0 0,1 -1,0 0,-1z M24,10l1,0 0,1 -1,0 0,-1z M25,10l1,0 0,1 -1,0 0,-1z M27,10l1,0 0,1 -1,0 0,-1z M28,10l1,0 0,1 -1,0 0,-1z M32,10l1,0 0,1 -1,0 0,-1z M33,10l1,0 0,1 -1,0 0,-1z M34,10l1,0 0,1 -1,0 0,-1z M35,10l1,0 0,1 -1,0 0,-1z M36,10l1,0 0,1 -1,0 0,-1z M2,11l1,0 0,1 -1,0 0,-1z M3,11l1,0 0,1 -1,0 0,-1z M5,11l1,0 0,1 -1,0 0,-1z M7,11l1,0 0,1 -1,0 0,-1z M11,11l1,0 0,1 -1,0 0,-1z M12,11l1,0 0,1 -1,0 0,-1z M13,11l1,0 0,1 -1,0 0,-1z M14,11l1,0 0,1 -1,0 0,-1z M15,11l1,0 0,1 -1,0 0,-1z M16,11l1,0 0,1 -1,0 0,-1z M17,11l1,0 0,1 -1,0 0,-1z M18,11l1,0 0,1 -1,0 0,-1z M23,11l1,0 0,1 -1,0 0,-1z M25,11l1,0 0,1 -1,0 0,-1z M27,11l1,0 0,1 -1,0 0,-1z M33,11l1,0 0,1 -1,0 0,-1z M35,11l1,0 0,1 -1,0 0,-1z M37,11l1,0 0,1 -1,0 0,-1z M3,12l1,0 0,1 -1,0 0,-1z M4,12l1,0 0,1 -1,0 0,-1z M5,12l1,0 0,1 -1,0 0,-1z M6,12l1,0 0,1 -1,0 0,-1z M8,12l1,0 0,1 -1,0 0,-1z M9,12l1,0 0,1 -1,0 0,-1z M10,12l1,0 0,1 -1,0 0,-1z M11,12l1,0 0,1 -1,0 0,-1z M12,12l1,0 0,1 -1,0 0,-1z M13,12l1,0 0,1 -1,0 0,-1z M15,12l1,0 0,1 -1,0 0,-1z M16,12l1,0 0,1 -1,0 0,-1z M27,12l1,0 0,1 -1,0 0,-1z M28,12l1,0 0,1 -1,0 0,-1z M29,12l1,0 0,1 -1,0 0,-1z M30,12l1,0 0,1 -1,0 0,-1z M31,12l1,0 0,1 -1,0 0,-1z M32,12l1,0 0,1 -1,0 0,-1z M37,12l1,0 0,1 -1,0 0,-1z M38,12l1,0 0,1 -1,0 0,-1z M2,13l1,0 0,1 -1,0 0,-1z M3,13l1,0 0,1 -1,0 0,-1z M4,13l1,0 0,1 -1,0 0,-1z M5,13l1,0 0,1 -1,0 0,-1z M9,13l1,0 0,1 -1,0 0,-1z M12,13l1,0 0,1 -1,0 0,-1z M13,13l1,0 0,1 -1,0 0,-1z M18,13l1,0 0,1 -1,0 0,-1z M20,13l1,0 0,1 -1,0 0,-1z M22,13l1,0 0,1 -1,0 0,-1z M23,13l1,0 0,1 -1,0 0,-1z M24,13l1,0 0,1 -1,0 0,-1z M26,13l1,0 0,1 -1,0 0,-1z M28,13l1,0 0,1 -1,0 0,-1z M29,13l1,0 0,1 -1,0 0,-1z M31,13l1,0 0,1 -1,0 0,-1z M33,13l1,0 0,1 -1,0 0,-1z M38,13l1,0 0,1 -1,0 0,-1z M2,14l1,0 0,1 -1,0 0,-1z M3,14l1,0 0,1 -1,0 0,-1z M4,14l1,0 0,1 -1,0 0,-1z M5,14l1,0 0,1 -1,0 0,-1z M8,14l1,0 0,1 -1,0 0,-1z M10,14l1,0 0,1 -1,0 0,-1z M11,14l1,0 0,1 -1,0 0,-1z M14,14l1,0 0,1 -1,0 0,-1z M15,14l1,0 0,1 -1,0 0,-1z M19,14l1,0 0,1 -1,0 0,-1z M26,14l1,0 0,1 -1,0 0,-1z M27,14l1,0 0,1 -1,0 0,-1z M28,14l1,0 0,1 -1,0 0,-1z M31,14l1,0 0,1 -1,0 0,-1z M32,14l1,0 0,1 -1,0 0,-1z M34,14l1,0 0,1 -1,0 0,-1z M35,14l1,0 0,1 -1,0 0,-1z M36,14l1,0 0,1 -1,0 0,-1z M37,14l1,0 0,1 -1,0 0,-1z M38,14l1,0 0,1 -1,0 0,-1z M5,15l1,0 0,1 -1,0 0,-1z M6,15l1,0 0,1 -1,0 0,-1z M9,15l1,0 0,1 -1,0 0,-1z M13,15l1,0 0,1 -1,0 0,-1z M14,15l1,0 0,1 -1,0 0,-1z M15,15l1,0 0,1 -1,0 0,-1z M18,15l1,0 0,1 -1,0 0,-1z M19,15l1,0 0,1 -1,0 0,-1z M20,15l1,0 0,1 -1,0 0,-1z M21,15l1,0 0,1 -1,0 0,-1z M22,15l1,0 0,1 -1,0 0,-1z M25,15l1,0 0,1 -1,0 0,-1z M33,15l1,0 0,1 -1,0 0,-1z M3,16l1,0 0,1 -1,0 0,-1z M5,16l1,0 0,1 -1,0 0,-1z M6,16l1,0 0,1 -1,0 0,-1z M7,16l1,0 0,1 -1,0 0,-1z M8,16l1,0 0,1 -1,0 0,-1z M9,16l1,0 0,1 -1,0 0,-1z M10,16l1,0 0,1 -1,0 0,-1z M12,16l1,0 0,1 -1,0 0,-1z M13,16l1,0 0,1 -1,0 0,-1z M14,16l1,0 0,1 -1,0 0,-1z M17,16l1,0 0,1 -1,0 0,-1z M18,16l1,0 0,1 -1,0 0,-1z M19,16l1,0 0,1 -1,0 0,-1z M22,16l1,0 0,1 -1,0 0,-1z M23,16l1,0 0,1 -1,0 0,-1z M24,16l1,0 0,1 -1,0 0,-1z M26,16l1,0 0,1 -1,0 0,-1z M29,16l1,0 0,1 -1,0 0,-1z M32,16l1,0 0,1 -1,0 0,-1z M33,16l1,0 0,1 -1,0 0,-1z M34,16l1,0 0,1 -1,0 0,-1z M35,16l1,0 0,1 -1,0 0,-1z M37,16l1,0 0,1 -1,0 0,-1z M38,16l1,0 0,1 -1,0 0,-1z M11,17l1,0 0,1 -1,0 0,-1z M16,17l1,0 0,1 -1,0 0,-1z M18,17l1,0 0,1 -1,0 0,-1z M19,17l1,0 0,1 -1,0 0,-1z M20,17l1,0 0,1 -1,0 0,-1z M21,17l1,0 0,1 -1,0 0,-1z M23,17l1,0 0,1 -1,0 0,-1z M26,17l1,0 0,1 -1,0 0,-1z M28,17l1,0 0,1 -1,0 0,-1z M31,17l1,0 0,1 -1,0 0,-1z M32,17l1,0 0,1 -1,0 0,-1z M33,17l1,0 0,1 -1,0 0,-1z M34,17l1,0 0,1 -1,0 0,-1z M37,17l1,0 0,1 -1,0 0,-1z M38,17l1,0 0,1 -1,0 0,-1z M2,18l1,0 0,1 -1,0 0,-1z M3,18l1,0 0,1 -1,0 0,-1z M4,18l1,0 0,1 -1,0 0,-1z M5,18l1,0 0,1 -1,0 0,-1z M6,18l1,0 0,1 -1,0 0,-1z M8,18l1,0 0,1 -1,0 0,-1z M12,18l1,0 0,1 -1,0 0,-1z M13,18l1,0 0,1 -1,0 0,-1z M14,18l1,0 0,1 -1,0 0,-1z M16,18l1,0 0,1 -1,0 0,-1z M18,18l1,0 0,1 -1,0 0,-1z M24,18l1,0 0,1 -1,0 0,-1z M25,18l1,0 0,1 -1,0 0,-1z M27,18l1,0 0,1 -1,0 0,-1z M28,18l1,0 0,1 -1,0 0,-1z M29,18l1,0 0,1 -1,0 0,-1z M32,18l1,0 0,1 -1,0 0,-1z M33,18l1,0 0,1 -1,0 0,-1z M34,18l1,0 0,1 -1,0 0,-1z M36,18l1,0 0,1 -1,0 0,-1z M37,18l1,0 0,1 -1,0 0,-1z M2,19l1,0 0,1 -1,0 0,-1z M3,19l1,0 0,1 -1,0 0,-1z M4,19l1,0 0,1 -1,0 0,-1z M7,19l1,0 0,1 -1,0 0,-1z M17,19l1,0 0,1 -1,0 0,-1z M20,19l1,0 0,1 -1,0 0,-1z M21,19l1,0 0,1 -1,0 0,-1z M22,19l1,0 0,1 -1,0 0,-1z M25,19l1,0 0,1 -1,0 0,-1z M27,19l1,0 0,1 -1,0 0,-1z M30,19l1,0 0,1 -1,0 0,-1z M33,19l1,0 0,1 -1,0 0,-1z M35,19l1,0 0,1 -1,0 0,-1z M36,19l1,0 0,1 -1,0 0,-1z M37,19l1,0 0,1 -1,0 0,-1z M3,20l1,0 0,1 -1,0 0,-1z M5,20l1,0 0,1 -1,0 0,-1z M7,20l1,0 0,1 -1,0 0,-1z M8,20l1,0 0,1 -1,0 0,-1z M9,20l1,0 0,1 -1,0 0,-1z M10,20l1,0 0,1 -1,0 0,-1z M12,20l1,0 0,1 -1,0 0,-1z M14,20l1,0 0,1 -1,0 0,-1z M17,20l1,0 0,1 -1,0 0,-1z M18,20l1,0 0,1 -1,0 0,-1z M22,20l1,0 0,1 -1,0 0,-1z M24,20l1,0 0,1 -1,0 0,-1z M28,20l1,0 0,1 -1,0 0,-1z M29,20l1,0 0,1 -1,0 0,-1z M33,20l1,0 0,1 -1,0 0,-1z M37,20l1,0 0,1 -1,0 0,-1z M38,20l1,0 0,1 -1,0 0,-1z M2,21l1,0 0,1 -1,0 0,-1z M3,21l1,0 0,1 -1,0 0,-1z M4,21l1,0 0,1 -1,0 0,-1z M6,21l1,0 0,1 -1,0 0,-1z M7,21l1,0 0,1 -1,0 0,-1z M9,21l1,0 0,1 -1,0 0,-1z M10,21l1,0 0,1 -1,0 0,-1z M11,21l1,0 0,1 -1,0 0,-1z M17,21l1,0 0,1 -1,0 0,-1z M22,21l1,0 0,1 -1,0 0,-1z M23,21l1,0 0,1 -1,0 0,-1z M24,21l1,0 0,1 -1,0 0,-1z M25,21l1,0 0,1 -1,0 0,-1z M28,21l1,0 0,1 -1,0 0,-1z M29,21l1,0 0,1 -1,0 0,-1z M30,21l1,0 0,1 -1,0 0,-1z M31,21l1,0 0,1 -1,0 0,-1z M32,21l1,0 0,1 -1,0 0,-1z M38,21l1,0 0,1 -1,0 0,-1z M6,22l1,0 0,1 -1,0 0,-1z M8,22l1,0 0,1 -1,0 0,-1z M10,22l1,0 0,1 -1,0 0,-1z M12,22l1,0 0,1 -1,0 0,-1z M14,22l1,0 0,1 -1,0 0,-1z M17,22l1,0 0,1 -1,0 0,-1z M19,22l1,0 0,1 -1,0 0,-1z M21,22l1,0 0,1 -1,0 0,-1z M22,22l1,0 0,1 -1,0 0,-1z M24,22l1,0 0,1 -1,0 0,-1z M25,22l1,0 0,1 -1,0 0,-1z M26,22l1,0 0,1 -1,0 0,-1z M27,22l1,0 0,1 -1,0 0,-1z M29,22l1,0 0,1 -1,0 0,-1z M31,22l1,0 0,1 -1,0 0,-1z M32,22l1,0 0,1 -1,0 0,-1z M34,22l1,0 0,1 -1,0 0,-1z M35,22l1,0 0,1 -1,0 0,-1z M36,22l1,0 0,1 -1,0 0,-1z M2,23l1,0 0,1 -1,0 0,-1z M3,23l1,0 0,1 -1,0 0,-1z M5,23l1,0 0,1 -1,0 0,-1z M6,23l1,0 0,1 -1,0 0,-1z M9,23l1,0 0,1 -1,0 0,-1z M10,23l1,0 0,1 -1,0 0,-1z M11,23l1,0 0,1 -1,0 0,-1z M13,23l1,0 0,1 -1,0 0,-1z M18,23l1,0 0,1 -1,0 0,-1z M21,23l1,0 0,1 -1,0 0,-1z M22,23l1,0 0,1 -1,0 0,-1z M25,23l1,0 0,1 -1,0 0,-1z M27,23l1,0 0,1 -1,0 0,-1z M30,23l1,0 0,1 -1,0 0,-1z M31,23l1,0 0,1 -1,0 0,-1z M35,23l1,0 0,1 -1,0 0,-1z M4,24l1,0 0,1 -1,0 0,-1z M5,24l1,0 0,1 -1,0 0,-1z M8,24l1,0 0,1 -1,0 0,-1z M10,24l1,0 0,1 -1,0 0,-1z M11,24l1,0 0,1 -1,0 0,-1z M14,24l1,0 0,1 -1,0 0,-1z M15,24l1,0 0,1 -1,0 0,-1z M16,24l1,0 0,1 -1,0 0,-1z M17,24l1,0 0,1 -1,0 0,-1z M20,24l1,0 0,1 -1,0 0,-1z M22,24l1,0 0,1 -1,0 0,-1z M23,24l1,0 0,1 -1,0 0,-1z M24,24l1,0 0,1 -1,0 0,-1z M28,24l1,0 0,1 -1,0 0,-1z M29,24l1,0 0,1 -1,0 0,-1z M30,24l1,0 0,1 -1,0 0,-1z M31,24l1,0 0,1 -1,0 0,-1z M33,24l1,0 0,1 -1,0 0,-1z M34,24l1,0 0,1 -1,0 0,-1z M35,24l1,0 0,1 -1,0 0,-1z M37,24l1,0 0,1 -1,0 0,-1z M38,24l1,0 0,1 -1,0 0,-1z M4,25l1,0 0,1 -1,0 0,-1z M5,25l1,0 0,1 -1,0 0,-1z M9,25l1,0 0,1 -1,0 0,-1z M10,25l1,0 0,1 -1,0 0,-1z M11,25l1,0 0,1 -1,0 0,-1z M13,25l1,0 0,1 -1,0 0,-1z M14,25l1,0 0,1 -1,0 0,-1z M16,25l1,0 0,1 -1,0 0,-1z M17,25l1,0 0,1 -1,0 0,-1z M18,25l1,0 0,1 -1,0 0,-1z M22,25l1,0 0,1 -1,0 0,-1z M23,25l1,0 0,1 -1,0 0,-1z M26,25l1,0 0,1 -1,0 0,-1z M29,25l1,0 0,1 -1,0 0,-1z M30,25l1,0 0,1 -1,0 0,-1z M31,25l1,0 0,1 -1,0 0,-1z M33,25l1,0 0,1 -1,0 0,-1z M34,25l1,0 0,1 -1,0 0,-1z M37,25l1,0 0,1 -1,0 0,-1z M2,26l1,0 0,1 -1,0 0,-1z M3,26l1,0 0,1 -1,0 0,-1z M6,26l1,0 0,1 -1,0 0,-1z M7,26l1,0 0,1 -1,0 0,-1z M8,26l1,0 0,1 -1,0 0,-1z M9,26l1,0 0,1 -1,0 0,-1z M12,26l1,0 0,1 -1,0 0,-1z M13,26l1,0 0,1 -1,0 0,-1z M15,26l1,0 0,1 -1,0 0,-1z M20,26l1,0 0,1 -1,0 0,-1z M21,26l1,0 0,1 -1,0 0,-1z M24,26l1,0 0,1 -1,0 0,-1z M26,26l1,0 0,1 -1,0 0,-1z M27,26l1,0 0,1 -1,0 0,-1z M28,26l1,0 0,1 -1,0 0,-1z M29,26l1,0 0,1 -1,0 0,-1z M31,26l1,0 0,1 -1,0 0,-1z M32,26l1,0 0,1 -1,0 0,-1z M34,26l1,0 0,1 -1,0 0,-1z M36,26l1,0 0,1 -1,0 0,-1z M37,26l1,0 0,1 -1,0 0,-1z M2,27l1,0 0,1 -1,0 0,-1z M3,27l1,0 0,1 -1,0 0,-1z M7,27l1,0 0,1 -1,0 0,-1z M9,27l1,0 0,1 -1,0 0,-1z M12,27l1,0 0,1 -1,0 0,-1z M15,27l1,0 0,1 -1,0 0,-1z M16,27l1,0 0,1 -1,0 0,-1z M17,27l1,0 0,1 -1,0 0,-1z M18,27l1,0 0,1 -1,0 0,-1z M21,27l1,0 0,1 -1,0 0,-1z M22,27l1,0 0,1 -1,0 0,-1z M23,27l1,0 0,1 -1,0 0,-1z M25,27l1,0 0,1 -1,0 0,-1z M26,27l1,0 0,1 -1,0 0,-1z M27,27l1,0 0,1 -1,0 0,-1z M30,27l1,0 0,1 -1,0 0,-1z M33,27l1,0 0,1 -1,0 0,-1z M36,27l1,0 0,1 -1,0 0,-1z M2,28l1,0 0,1 -1,0 0,-1z M4,28l1,0 0,1 -1,0 0,-1z M6,28l1,0 0,1 -1,0 0,-1z M8,28l1,0 0,1 -1,0 0,-1z M10,28l1,0 0,1 -1,0 0,-1z M11,28l1,0 0,1 -1,0 0,-1z M13,28l1,0 0,1 -1,0 0,-1z M19,28l1,0 0,1 -1,0 0,-1z M20,28l1,0 0,1 -1,0 0,-1z M23,28l1,0 0,1 -1,0 0,-1z M24,28l1,0 0,1 -1,0 0,-1z M26,28l1,0 0,1 -1,0 0,-1z M27,28l1,0 0,1 -1,0 0,-1z M28,28l1,0 0,1 -1,0 0,-1z M29,28l1,0 0,1 -1,0 0,-1z M30,28l1,0 0,1 -1,0 0,-1z M31,28l1,0 0,1 -1,0 0,-1z M32,28l1,0 0,1 -1,0 0,-1z M35,28l1,0 0,1 -1,0 0,-1z M36,28l1,0 0,1 -1,0 0,-1z M37,28l1,0 0,1 -1,0 0,-1z M38,28l1,0 0,1 -1,0 0,-1z M2,29l1,0 0,1 -1,0 0,-1z M5,29l1,0 0,1 -1,0 0,-1z M6,29l1,0 0,1 -1,0 0,-1z M9,29l1,0 0,1 -1,0 0,-1z M10,29l1,0 0,1 -1,0 0,-1z M13,29l1,0 0,1 -1,0 0,-1z M14,29l1,0 0,1 -1,0 0,-1z M15,29l1,0 0,1 -1,0 0,-1z M18,29l1,0 0,1 -1,0 0,-1z M21,29l1,0 0,1 -1,0 0,-1z M22,29l1,0 0,1 -1,0 0,-1z M23,29l1,0 0,1 -1,0 0,-1z M28,29l1,0 0,1 -1,0 0,-1z M29,29l1,0 0,1 -1,0 0,-1z M30,29l1,0 0,1 -1,0 0,-1z M32,29l1,0 0,1 -1,0 0,-1z M33,29l1,0 0,1 -1,0 0,-1z M35,29l1,0 0,1 -1,0 0,-1z M37,29l1,0 0,1 -1,0 0,-1z M2,30l1,0 0,1 -1,0 0,-1z M5,30l1,0 0,1 -1,0 0,-1z M6,30l1,0 0,1 -1,0 0,-1z M8,30l1,0 0,1 -1,0 0,-1z M10,30l1,0 0,1 -1,0 0,-1z M12,30l1,0 0,1 -1,0 0,-1z M14,30l1,0 0,1 -1,0 0,-1z M15,30l1,0 0,1 -1,0 0,-1z M16,30l1,0 0,1 -1,0 0,-1z M19,30l1,0 0,1 -1,0 0,-1z M20,30l1,0 0,1 -1,0 0,-1z M21,30l1,0 0,1 -1,0 0,-1z M24,30l1,0 0,1 -1,0 0,-1z M26,30l1,0 0,1 -1,0 0,-1z M27,30l1,0 0,1 -1,0 0,-1z M28,30l1,0 0,1 -1,0 0,-1z M29,30l1,0 0,1 -1,0 0,-1z M30,30l1,0 0,1 -1,0 0,-1z M31,30l1,0 0,1 -1,0 0,-1z M32,30l1,0 0,1 -1,0 0,-1z M33,30l1,0 0,1 -1,0 0,-1z M34,30l1,0 0,1 -1,0 0,-1z M35,30l1,0 0,1 -1,0 0,-1z M36,30l1,0 0,1 -1,0 0,-1z M10,31l1,0 0,1 -1,0 0,-1z M11,31l1,0 0,1 -1,0 0,-1z M14,31l1,0 0,1 -1,0 0,-1z M15,31l1,0 0,1 -1,0 0,-1z M18,31l1,0 0,1 -1,0 0,-1z M19,31l1,0 0,1 -1,0 0,-1z M20,31l1,0 0,1 -1,0 0,-1z M21,31l1,0 0,1 -1,0 0,-1z M23,31l1,0 0,1 -1,0 0,-1z M25,31l1,0 0,1 -1,0 0,-1z M27,31l1,0 0,1 -1,0 0,-1z M30,31l1,0 0,1 -1,0 0,-1z M34,31l1,0 0,1 -1,0 0,-1z M35,31l1,0 0,1 -1,0 0,-1z M2,32l1,0 0,1 -1,0 0,-1z M3,32l1,0 0,1 -1,0 0,-1z M4,32l1,0 0,1 -1,0 0,-1z M5,32l1,0 0,1 -1,0 0,-1z M6,32l1,0 0,1 -1,0 0,-1z M7,32l1,0 0,1 -1,0 0,-1z M8,32l1,0 0,1 -1,0 0,-1z M15,32l1,0 0,1 -1,0 0,-1z M17,32l1,0 0,1 -1,0 0,-1z M19,32l1,0 0,1 -1,0 0,-1z M23,32l1,0 0,1 -1,0 0,-1z M24,32l1,0 0,1 -1,0 0,-1z M26,32l1,0 0,1 -1,0 0,-1z M28,32l1,0 0,1 -1,0 0,-1z M30,32l1,0 0,1 -1,0 0,-1z M32,32l1,0 0,1 -1,0 0,-1z M34,32l1,0 0,1 -1,0 0,-1z M36,32l1,0 0,1 -1,0 0,-1z M38,32l1,0 0,1 -1,0 0,-1z M2,33l1,0 0,1 -1,0 0,-1z M8,33l1,0 0,1 -1,0 0,-1z M10,33l1,0 0,1 -1,0 0,-1z M11,33l1,0 0,1 -1,0 0,-1z M12,33l1,0 0,1 -1,0 0,-1z M15,33l1,0 0,1 -1,0 0,-1z M16,33l1,0 0,1 -1,0 0,-1z M19,33l1,0 0,1 -1,0 0,-1z M20,33l1,0 0,1 -1,0 0,-1z M22,33l1,0 0,1 -1,0 0,-1z M23,33l1,0 0,1 -1,0 0,-1z M24,33l1,0 0,1 -1,0 0,-1z M25,33l1,0 0,1 -1,0 0,-1z M26,33l1,0 0,1 -1,0 0,-1z M30,33l1,0 0,1 -1,0 0,-1z M34,33l1,0 0,1 -1,0 0,-1z M35,33l1,0 0,1 -1,0 0,-1z M2,34l1,0 0,1 -1,0 0,-1z M4,34l1,0 0,1 -1,0 0,-1z M5,34l1,0 0,1 -1,0 0,-1z M6,34l1,0 0,1 -1,0 0,-1z M8,34l1,0 0,1 -1,0 0,-1z M10,34l1,0 0,1 -1,0 0,-1z M13,34l1,0 0,1 -1,0 0,-1z M16,34l1,0 0,1 -1,0 0,-1z M17,34l1,0 0,1 -1,0 0,-1z M18,34l1,0 0,1 -1,0 0,-1z M24,34l1,0 0,1 -1,0 0,-1z M27,34l1,0 0,1 -1,0 0,-1z M28,34l1,0 0,1 -1,0 0,-1z M29,34l1,0 0,1 -1,0 0,-1z M30,34l1,0 0,1 -1,0 0,-1z M31,34l1,0 0,1 -1,0 0,-1z M32,34l1,0 0,1 -1,0 0,-1z M33,34l1,0 0,1 -1,0 0,-1z M34,34l1,0 0,1 -1,0 0,-1z M36,34l1,0 0,1 -1,0 0,-1z M38,34l1,0 0,1 -1,0 0,-1z M2,35l1,0 0,1 -1,0 0,-1z M4,35l1,0 0,1 -1,0 0,-1z M5,35l1,0 0,1 -1,0 0,-1z M6,35l1,0 0,1 -1,0 0,-1z M8,35l1,0 0,1 -1,0 0,-1z M10,35l1,0 0,1 -1,0 0,-1z M11,35l1,0 0,1 -1,0 0,-1z M17,35l1,0 0,1 -1,0 0,-1z M19,35l1,0 0,1 -1,0 0,-1z M20,35l1,0 0,1 -1,0 0,-1z M21,35l1,0 0,1 -1,0 0,-1z M25,35l1,0 0,1 -1,0 0,-1z M27,35l1,0 0,1 -1,0 0,-1z M29,35l1,0 0,1 -1,0 0,-1z M31,35l1,0 0,1 -1,0 0,-1z M32,35l1,0 0,1 -1,0 0,-1z M34,35l1,0 0,1 -1,0 0,-1z M36,35l1,0 0,1 -1,0 0,-1z M38,35l1,0 0,1 -1,0 0,-1z M2,36l1,0 0,1 -1,0 0,-1z M4,36l1,0 0,1 -1,0 0,-1z M5,36l1,0 0,1 -1,0 0,-1z M6,36l1,0 0,1 -1,0 0,-1z M8,36l1,0 0,1 -1,0 0,-1z M10,36l1,0 0,1 -1,0 0,-1z M17,36l1,0 0,1 -1,0 0,-1z M18,36l1,0 0,1 -1,0 0,-1z M19,36l1,0 0,1 -1,0 0,-1z M23,36l1,0 0,1 -1,0 0,-1z M27,36l1,0 0,1 -1,0 0,-1z M29,36l1,0 0,1 -1,0 0,-1z M30,36l1,0 0,1 -1,0 0,-1z M36,36l1,0 0,1 -1,0 0,-1z M37,36l1,0 0,1 -1,0 0,-1z M38,36l1,0 0,1 -1,0 0,-1z M2,37l1,0 0,1 -1,0 0,-1z M8,37l1,0 0,1 -1,0 0,-1z M11,37l1,0 0,1 -1,0 0,-1z M13,37l1,0 0,1 -1,0 0,-1z M14,37l1,0 0,1 -1,0 0,-1z M15,37l1,0 0,1 -1,0 0,-1z M16,37l1,0 0,1 -1,0 0,-1z M17,37l1,0 0,1 -1,0 0,-1z M21,37l1,0 0,1 -1,0 0,-1z M22,37l1,0 0,1 -1,0 0,-1z M23,37l1,0 0,1 -1,0 0,-1z M24,37l1,0 0,1 -1,0 0,-1z M28,37l1,0 0,1 -1,0 0,-1z M30,37l1,0 0,1 -1,0 0,-1z M31,37l1,0 0,1 -1,0 0,-1z M32,37l1,0 0,1 -1,0 0,-1z M34,37l1,0 0,1 -1,0 0,-1z M38,37l1,0 0,1 -1,0 0,-1z M2,38l1,0 0,1 -1,0 0,-1z M3,38l1,0 0,1 -1,0 0,-1z M4,38l1,0 0,1 -1,0 0,-1z M5,38l1,0 0,1 -1,0 0,-1z M6,38l1,0 0,1 -1,0 0,-1z M7,38l1,0 0,1 -1,0 0,-1z M8,38l1,0 0,1 -1,0 0,-1z M10,38l1,0 0,1 -1,0 0,-1z M12,38l1,0 0,1 -1,0 0,-1z M13,38l1,0 0,1 -1,0 0,-1z M14,38l1,0 0,1 -1,0 0,-1z M17,38l1,0 0,1 -1,0 0,-1z M19,38l1,0 0,1 -1,0 0,-1z M21,38l1,0 0,1 -1,0 0,-1z M24,38l1,0 0,1 -1,0 0,-1z M27,38l1,0 0,1 -1,0 0,-1z M28,38l1,0 0,1 -1,0 0,-1z M31,38l1,0 0,1 -1,0 0,-1z M32,38l1,0 0,1 -1,0 0,-1z M34,38l1,0 0,1 -1,0 0,-1z M35,38l1,0 0,1 -1,0 0,-1z M36,38l1,0 0,1 -1,0 0,-1z M37,38l1,0 0,1 -1,0 0,-1z M38,38l1,0 0,1 -1,0 0,-1z " stroke="transparent" fill="black"/></svg><figcaption>github.com/krahlos/did-slides/blob/main/data/eudi-wallet/quellen.md</figcaption></figure><footer><span>6 · Fazit</span><span></span><span>36 / 37</span></footer><aside class="notes"><p>Alle Quellen mit Links: QR-Code oder data/eudi-wallet/quellen.md im Repo.</p>
+<p>PRÜFEN: Der QR-Code funktioniert erst, wenn quellen.md gepusht ist.</p>
+</aside></section>
+
+<section class="slide layout-transparency">
+<div class="content"><h2>Transparenzhinweis</h2>
+<div class="cols"><div class="col"><h3>Wie KI eingesetzt wurde</h3>
+<ul>
+<li><strong>Recherche</strong>: Claude Opus 5.5, 3. November 2026</li>
+<li><strong>Gliederung und Folienentwurf</strong>: Claude Opus 5.5, November 2026</li>
+<li><strong>Quellen</strong>: auf jeder Folie, vollständig per QR-Code auf der Quellenfolie</li>
+<li><strong>Faktenprüfung</strong>: [Datum eintragen]</li>
+</ul>
+</div><div class="col"><h3>Prompt der Recherche</h3>
+<pre><code class="hljs language-text">Strukturiere mir bitte einen 20 bis 30-minütigen Vortrag zur EUDI-Wallet [https://eudi-wallet.gov.de](https://eudi-wallet.gov.de) und der deutschen Umsetzung d-you. Ich würde im Vortrag gerne mit der europäischen Idee dazu beginnen, dann was zum generellen Projekt erfahren (also seit wann das läuft, welche Meilensteine es gab, etc), dann was zur deutschen Version der d-you App und dann auch gerne noch kurz etwas zu SPRIND die das in Deutschland ja umsetzen. Beziehe erstmal nur primäre Quellen ein. Es ist mir sehr wichtig, dass alle Informationen korrekt sind. Außerdem ist es wichtig, dass die Informationen nüchtern sind und das keine Propagandaveranstaltung wird. Nur im letzten Teil des Vortrags (5-7 Minuten) möchte ich was zur Berichterstattung dazu haben.</code></pre>
+</div></div></div>
+<footer><span>6 · Fazit</span><span></span><span>37 / 37</span></footer><aside class="notes"><p>Prompt wörtlich aus der Vortragsgliederung (vortrag-gliederung.md, im Repo bis Commit 61f4b9f; Abschnitt „Transparenzhinweis“, Recherche vom 3.11.2026, 21:26 Uhr).</p>
+<p>PRÜFEN: „Faktenprüfung“ erst eintragen, wenn die PRÜFEN-Stellen erledigt sind.</p>
+</aside></section>
 </div>
 <div class="progress"><span></span></div>
 <script src="src/deck.js"></script>

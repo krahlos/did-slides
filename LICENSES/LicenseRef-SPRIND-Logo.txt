@@ -1,0 +1,14 @@
+SPRIND logo – permission for this repository
+
+The SPRIND logo (data/eudi-wallet/img/logos/sprind.svg) belongs to SPRIND GmbH
+(Bundesagentur für Sprunginnovationen). It is not covered by the CC BY 4.0 license
+of the slides.
+
+On 24 November 2026, SPRIND GmbH permitted by email the use of the logo in the talk
+"Die EUDI-Wallet / d-you" (DI.DAY), as requested: small, unchanged, next to the name
+SPRIND, without implying that SPRIND supports the talk, stored in this repository.
+
+Source: https://www.sprind.org/presse, "SPRIND Logo.zip", positiv/pdf/SprinD_rgb.pdf,
+converted to SVG without visual changes.
+
+Any other use requires permission from SPRIND GmbH.
